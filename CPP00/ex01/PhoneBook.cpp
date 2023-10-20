@@ -47,7 +47,7 @@ void	PhoneBook::printPhoneBook() {
 	std::cout << "--------------------------------------------------------" << std::endl;
 }
 
-bool	PhoneBook::isValidIndex(std::string indexString) {
+bool	PhoneBook::isValidIndex(const std::string& indexString) {
 	if (indexString.empty())
 		return false;
 	for (size_t i = 0; i < indexString.length(); ++i) {
@@ -59,7 +59,7 @@ bool	PhoneBook::isValidIndex(std::string indexString) {
 	return false;
 }
 
-void PhoneBook::printContact(int i) {
+void PhoneBook::printContact(const int i) {
 	std::cout << "First name:     " << _contacts[i].getFirstName() << std::endl;
 	std::cout << "Last name:      " << _contacts[i].getLastName() << std::endl;
 	std::cout << "Phone number:   " << _contacts[i].getPhoneNumber() << std::endl;

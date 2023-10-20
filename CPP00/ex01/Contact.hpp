@@ -15,10 +15,10 @@ public:
 	std::string	getPhoneNumber();
 	std::string	getDarkestSecret();
 
-    void		setFirstName(std::string);
-    void		setLastName(std::string);
-    void		setPhoneNumber(std::string);
-    void		setDarkestSecret(std::string);
+    void		setFirstName(const std::string&);
+    void		setLastName(const std::string&);
+    void		setPhoneNumber(const std::string&);
+    void		setDarkestSecret(const std::string&);
 
     bool		isValidPhoneNumber();
 

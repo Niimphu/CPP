@@ -4,7 +4,6 @@
 # include "Contact.hpp"
 # include <iomanip>
 
-bool		isValidIndex(std::string);
 std::string	truncateString(const std::string&);
 
 class	PhoneBook {
@@ -14,12 +13,12 @@ public:
 	void	addContact();
 	void	searchContacts();
 	void	printPhoneBook();
-	void	printContact(int);
+	void	printContact(const int);
 
 	void	incrementIndex();
 	void	incrementCount();
 
-	bool	isValidIndex(std::string);
+	bool	isValidIndex(const std::string&);
 
 private:
 	Contact	_contacts[8];
