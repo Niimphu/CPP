@@ -47,6 +47,18 @@ void	PhoneBook::printPhoneBook() {
 	std::cout << "--------------------------------------------------------" << std::endl;
 }
 
+bool	PhoneBook::isValidIndex(std::string indexString) {
+	if (indexString.empty())
+		return false;
+	for (size_t i = 0; i < indexString.length(); ++i) {
+		if (!std::isdigit(indexString[i]))
+			return false;
+	}
+	if (std::stoi(indexString) > 0 && std::stoi(indexString) <= _count)
+		return true;
+	return false;
+}
+
 void PhoneBook::printContact(int i) {
 	std::cout << "First name:     " << _contacts[i].getFirstName() << std::endl;
 	std::cout << "Last name:      " << _contacts[i].getLastName() << std::endl;
@@ -55,10 +67,10 @@ void PhoneBook::printContact(int i) {
 }
 
 void	PhoneBook::incrementIndex() {
-	if (_i > 7)
-		_i = 0;
-	else
+	if (_i < 7)
 		_i++;
+	else
+		_i = 0;
 }
 
 void	PhoneBook::incrementCount() {

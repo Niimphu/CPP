@@ -19,6 +19,8 @@ public:
 	void	incrementIndex();
 	void	incrementCount();
 
+	bool	isValidIndex(std::string);
+
 private:
 	Contact	_contacts[8];
 	int		_i;
