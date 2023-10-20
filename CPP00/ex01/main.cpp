@@ -16,7 +16,7 @@ int	main() {
 		if (!userInput.compare("ADD"))
 			phoneBook.addContact();
 		else if (!userInput.compare("SEARCH"))
-			std::cout << "searching" << std::endl;
+			phoneBook.searchContacts();
 		else if (userInput.compare("EXIT"))
 			std::cout << "Invalid input. Please enter ADD, SEARCH, or EXIT." << std::endl;
 	}
@@ -30,4 +30,22 @@ std::string	getInput(const std::string& fieldName) {
 		std::getline(std::cin, input);
 	}
 	return input;
+}
+
+bool	isValidIndex(std::string indexString) {
+	if (indexString.empty())
+		return false;
+	for (size_t i = 0; i < indexString.length(); ++i) {
+		if (!std::isdigit(indexString[i]))
+			return false;
+	}
+	if (std::stoi(indexString) > 0 && std::stoi(indexString) <= 8)
+		return true;
+	return false;
+}
+
+std::string	truncateString(const std::string& inputString) {
+	if (inputString.length() > 10)
+		return (inputString.substr(0,9) + '.');
+	return inputString;
 }
