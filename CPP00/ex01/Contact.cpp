@@ -2,51 +2,45 @@
 
 bool isValidPhoneNumber(const std::string& number);
 
-Contact::Contact() {
-	std::cout << "Please enter the following contact details: " << std::endl;
-	while (firstName.empty()) {
-		std::cout << "First name: " << std::flush;
-		std::getline(std::cin, firstName);
-	}
-	while (lastName.empty()) {
-		std::cout << "Last name: " << std::flush;
-		std::getline(std::cin, lastName);
-	}
-	while (phoneNumber.empty() || !isValidPhoneNumber(phoneNumber)) {
-		std::cout << "Phone number: " << std::flush;
-		std::getline(std::cin, phoneNumber);
-	}
-	while (darkestSecret.empty()) {
-		std::cout << "Darkest secret: " << std::flush;
-		std::getline(std::cin, darkestSecret);
-	}
-}
-//
-//void	Contact::newContact() {
-//	std::cout << "Please enter the following contact details: " << std::endl;
-//	while (firstName.empty()) {
-//		std::cout << "First name: " << std::flush;
-//		std::getline(std::cin, firstName);
-//	}
-//	while (lastName.empty()) {
-//		std::cout << "Last name: " << std::flush;
-//		std::getline(std::cin, lastName);
-//	}
-//	while (phoneNumber.empty() || !isValidPhoneNumber(phoneNumber)) {
-//		std::cout << "Phone number: " << std::flush;
-//		std::getline(std::cin, phoneNumber);
-//	}
-//	while (darkestSecret.empty()) {
-//		std::cout << "Darkest secret: " << std::flush;
-//		std::getline(std::cin, darkestSecret);
-//	}
-//}
+Contact::Contact() : _firstName(""), _lastName(""), _phoneNumber(""), _darkestSecret("") {}
 
-bool isValidPhoneNumber(const std::string& number) {
-	for (std::string::const_iterator i = number.begin(); i != number.end(); ++i) {
+bool Contact::isValidPhoneNumber() {
+	for (std::string::const_iterator i = _phoneNumber.begin(); i != _phoneNumber.end(); ++i) {
 		if (!std::isdigit(*i) && !std::isspace(*i)) {
 			return false;
 		}
 	}
 	return true;
 }
+
+std::string Contact::getFirstName() {
+    return _firstName;
+};
+
+std::string Contact::getLastName() {
+    return _lastName;
+};
+
+std::string Contact::getPhoneNumber() {
+    return _phoneNumber;
+};
+
+std::string Contact::getDarkestSecret() {
+    return _darkestSecret;
+};
+
+void    Contact::setFirstName(std::string newFirstName) {
+    _firstName = newFirstName;
+};
+
+void    Contact::setLastName(std::string newLastName) {
+    _lastName = newLastName;
+};
+
+void    Contact::setPhoneNumber(std::string newPhoneNumber) {
+    _phoneNumber = newPhoneNumber;
+};
+
+void    Contact::setDarkestSecret(std::string newDarkestSecret) {
+    _darkestSecret = newDarkestSecret;
+};

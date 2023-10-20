@@ -13,11 +13,18 @@ public:
 	std::string getPhoneNumber();
 	std::string getDarkestSecret();
 
+    void    setFirstName(std::string);
+    void    setLastName(std::string);
+    void    setPhoneNumber(std::string);
+    void    setDarkestSecret(std::string);
+
+    bool    isValidPhoneNumber();
+
 private:
-	const std::string	firstName;
-	const std::string	lastName;
-	const std::string	phoneNumber;
-	const std::string	darkestSecret;
+	std::string	_firstName;
+	std::string	_lastName;
+    std::string	_phoneNumber;
+	std::string	_darkestSecret;
 };
 
 Contact	newContact();
