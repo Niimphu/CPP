@@ -6,9 +6,7 @@
 
 class Contact {
 public:
-	Contact(const std::string& first, const std::string& last, const std::string& phone, const std::string& secret)
-			: firstName(first), lastName(last), phoneNumber(phone), darkestSecret(secret) {
-	}
+	Contact();
 
 	std::string getFirstName();
 	std::string getLastName();
