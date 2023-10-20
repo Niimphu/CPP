@@ -8,17 +8,17 @@ class	Contact {
 public:
 	Contact();
 
-	std::string getFirstName();
-	std::string getLastName();
-	std::string getPhoneNumber();
-	std::string getDarkestSecret();
+	std::string	getFirstName();
+	std::string	getLastName();
+	std::string	getPhoneNumber();
+	std::string	getDarkestSecret();
 
-    void    setFirstName(std::string);
-    void    setLastName(std::string);
-    void    setPhoneNumber(std::string);
-    void    setDarkestSecret(std::string);
+    void		setFirstName(std::string);
+    void		setLastName(std::string);
+    void		setPhoneNumber(std::string);
+    void		setDarkestSecret(std::string);
 
-    bool    isValidPhoneNumber();
+    bool		isValidPhoneNumber();
 
 private:
 	std::string	_firstName;
@@ -26,7 +26,5 @@ private:
 	std::string	_phoneNumber;
 	std::string	_darkestSecret;
 };
-
-Contact	newContact();
 
 #endif
