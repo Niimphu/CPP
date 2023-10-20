@@ -4,7 +4,7 @@
 # include <iostream>
 # include <string>
 
-class Contact {
+class	Contact {
 public:
 	Contact();
 
@@ -23,7 +23,7 @@ public:
 private:
 	std::string	_firstName;
 	std::string	_lastName;
-    std::string	_phoneNumber;
+	std::string	_phoneNumber;
 	std::string	_darkestSecret;
 };
 
