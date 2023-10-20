@@ -22,3 +22,12 @@ int	main() {
 	}
 	return 0;
 }
+
+std::string	getInput(const std::string& fieldName) {
+	std::string input = "";
+	while (input.empty()) {
+		std::cout << fieldName << ": " << std::flush;
+		std::getline(std::cin, input);
+	}
+	return input;
+}

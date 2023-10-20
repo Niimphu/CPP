@@ -4,6 +4,8 @@
 # include <iostream>
 # include <string>
 
+std::string	getInput(const std::string& fieldName);
+
 class	Contact {
 public:
 	Contact();
