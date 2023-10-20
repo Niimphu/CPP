@@ -20,13 +20,16 @@ void	PhoneBook::addContact() {
 }
 
 void	PhoneBook::searchContacts() {
+	if (!_count) {
+		std::cout << "Please ADD a contact before SEARCHing" << std::endl;
+		return ;
+	}
 	printPhoneBook();
-	return ;
 
-	std::string	indexInput = getInput("Enter the index of the contact you would like to see: ");
+	std::string	indexInput = getInput("Enter the index of the contact you would like to see");
 	while (!isValidIndex(indexInput))
-		indexInput = getInput("Please enter a number between 1-8: ");
-	std::cout << "Number: " << stoi(indexInput) << std::endl;
+		indexInput = getInput("Please enter a number between 1 and " + std::to_string(_count));
+	printContact(stoi(indexInput) - 1);
 }
 
 void	PhoneBook::printPhoneBook() {
@@ -34,7 +37,7 @@ void	PhoneBook::printPhoneBook() {
 	std::cout << "|Index     |First name|Last name |Number    |Secret    |" << std::endl;
 	std::cout << "--------------------------------------------------------" << std::endl;
 	for (int i = 0; i < _count; ++i) {
-		std::cout << "|" << std::setw(10) << std::right << i << std::flush;
+		std::cout << "|" << std::setw(10) << std::right << i + 1 << std::flush;
 		std::cout << "|" << std::setw(10) << std::right << truncateString(_contacts[i].getFirstName()) << std::flush;
 		std::cout << "|" << std::setw(10) << std::right << truncateString(_contacts[i].getLastName()) << std::flush;
 		std::cout << "|" << std::setw(10) << std::right << truncateString(_contacts[i].getPhoneNumber()) << std::flush;
@@ -42,6 +45,13 @@ void	PhoneBook::printPhoneBook() {
 		std::cout << "|" << std::endl;
 	}
 	std::cout << "--------------------------------------------------------" << std::endl;
+}
+
+void PhoneBook::printContact(int i) {
+	std::cout << "First name:     " << _contacts[i].getFirstName() << std::endl;
+	std::cout << "Last name:      " << _contacts[i].getLastName() << std::endl;
+	std::cout << "Phone number:   " << _contacts[i].getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret: " << _contacts[i].getDarkestSecret() << std::endl;
 }
 
 void	PhoneBook::incrementIndex() {

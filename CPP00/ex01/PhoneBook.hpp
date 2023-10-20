@@ -14,6 +14,7 @@ public:
 	void	addContact();
 	void	searchContacts();
 	void	printPhoneBook();
+	void	printContact(int);
 
 	void	incrementIndex();
 	void	incrementCount();
