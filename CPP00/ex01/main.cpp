@@ -1,7 +1,7 @@
 #include "PhoneBook.hpp"
 
 int	main() {
-	std::cout << "Welcome to your Awesome Crappy Phonebook" << std::endl \
+	std::cout << "Welcome to your Silly Little Phonebook" << std::endl \
 		<< "Please enter: ADD, SEARCH, or EXIT" << std::endl;
 
 	std::string	userInput = "";
