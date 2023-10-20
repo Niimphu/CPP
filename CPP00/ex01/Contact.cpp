@@ -7,8 +7,8 @@ Contact::Contact() : _firstName(""), _lastName(""), _phoneNumber(""), _darkestSe
 bool	Contact::isValidPhoneNumber() {
 	if (_phoneNumber.empty())
 		return false;
-	for (std::string::const_iterator i = _phoneNumber.begin(); i != _phoneNumber.end(); ++i) {
-		if (!std::isdigit(*i) && !std::isspace(*i)) {
+	for (size_t i = 0; i < _phoneNumber.length(); ++i) {
+		if (!std::isdigit(_phoneNumber[i]) && !std::isspace(_phoneNumber[i])) {
 			return false;
 		}
 	}
