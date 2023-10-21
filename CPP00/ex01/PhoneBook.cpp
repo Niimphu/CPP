@@ -64,7 +64,7 @@ bool	PhoneBook::isValidIndex(const std::string& indexString) {
 void PhoneBook::printContact(const int i) {
 	std::cout << "First name:     " << _contacts[i].getFirstName() << std::endl;
 	std::cout << "Last name:      " << _contacts[i].getLastName() << std::endl;
-	std::cout << "Nickname:       " << _contacts[i].getLastName() << std::endl;
+	std::cout << "Nickname:       " << _contacts[i].getNickname() << std::endl;
 	std::cout << "Phone number:   " << _contacts[i].getPhoneNumber() << std::endl;
 	std::cout << "Darkest secret: " << _contacts[i].getDarkestSecret() << std::endl;
 }
