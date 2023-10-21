@@ -7,9 +7,8 @@ int	main( void ) {
 	for (int i = 0; i < N; ++i) {
 		horde[i].announce();
 	}
-	std::cout << std::endl;
 
-	delete horde;
+	delete[] horde;
 }
 
 void	Zombie::announce() {
