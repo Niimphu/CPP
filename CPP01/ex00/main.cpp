@@ -12,7 +12,3 @@ int	main( void ) {
 
 	delete Fred;
 }
-
-void	Zombie::announce() {
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
