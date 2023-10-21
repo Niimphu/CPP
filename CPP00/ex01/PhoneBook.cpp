@@ -9,6 +9,7 @@ void	PhoneBook::addContact() {
 	std::cout << "Please enter the following contact details: " << std::endl;
 	newContact.setFirstName(getInput("First name"));
 	newContact.setLastName(getInput("Last name"));
+	newContact.setNickname(getInput("Nickname"));
 	while (!newContact.isValidPhoneNumber())
 		newContact.setPhoneNumber(getInput("Phone number"));
 	newContact.setDarkestSecret(getInput("Darkest secret"));
@@ -16,7 +17,7 @@ void	PhoneBook::addContact() {
 	_contacts[_i] = newContact;
 	incrementIndex();
 	incrementCount();
-	std::cout << "New contact " << newContact.getFirstName() << " " << newContact.getLastName() << " added to phonebook" << std::endl;
+	std::cout << "New contact " << newContact.getFirstName() << " added to phonebook" << std::endl;
 }
 
 void	PhoneBook::searchContacts() {
@@ -33,18 +34,19 @@ void	PhoneBook::searchContacts() {
 }
 
 void	PhoneBook::printPhoneBook() {
-	std::cout << "--------------------------------------------------------" << std::endl;
-	std::cout << "|Index     |First name|Last name |Number    |Secret    |" << std::endl;
-	std::cout << "--------------------------------------------------------" << std::endl;
+	std::cout << "-------------------------------------------------------------------" << std::endl;
+	std::cout << "|Index     |First name|Last name |Nickname  |Number    |Secret    |" << std::endl;
+	std::cout << "-------------------------------------------------------------------" << std::endl;
 	for (int i = 0; i < _count; ++i) {
 		std::cout << "|" << std::setw(10) << std::right << i + 1 << std::flush;
 		std::cout << "|" << std::setw(10) << std::right << truncateString(_contacts[i].getFirstName()) << std::flush;
 		std::cout << "|" << std::setw(10) << std::right << truncateString(_contacts[i].getLastName()) << std::flush;
+		std::cout << "|" << std::setw(10) << std::right << truncateString(_contacts[i].getNickname()) << std::flush;
 		std::cout << "|" << std::setw(10) << std::right << truncateString(_contacts[i].getPhoneNumber()) << std::flush;
 		std::cout << "|" << std::setw(10) << std::right << truncateString(_contacts[i].getDarkestSecret()) << std::flush;
 		std::cout << "|" << std::endl;
 	}
-	std::cout << "--------------------------------------------------------" << std::endl;
+	std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 bool	PhoneBook::isValidIndex(const std::string& indexString) {
@@ -62,6 +64,7 @@ bool	PhoneBook::isValidIndex(const std::string& indexString) {
 void PhoneBook::printContact(const int i) {
 	std::cout << "First name:     " << _contacts[i].getFirstName() << std::endl;
 	std::cout << "Last name:      " << _contacts[i].getLastName() << std::endl;
+	std::cout << "Nickname:       " << _contacts[i].getLastName() << std::endl;
 	std::cout << "Phone number:   " << _contacts[i].getPhoneNumber() << std::endl;
 	std::cout << "Darkest secret: " << _contacts[i].getDarkestSecret() << std::endl;
 }
