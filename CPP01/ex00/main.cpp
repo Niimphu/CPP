@@ -1,8 +1,7 @@
 #include "Zombie.hpp"
 
 int	main( void ) {
-	Zombie* Fred;
-	Fred = newZombie("Fred");
+	Zombie* Fred = newZombie("Fred");
 	Fred->announce();
 
 	std::cout << std::endl;
