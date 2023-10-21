@@ -3,6 +3,8 @@
 
 # include "Contact.hpp"
 # include <iomanip>
+# include <iostream>
+# include <string>
 
 std::string	truncateString(const std::string&);
 
