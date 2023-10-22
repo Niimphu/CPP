@@ -2,7 +2,7 @@
 
 bool	isEmpty( const std::string& input );
 
-int	main() {
+int	main( void ) {
 	std::cout << "Welcome to your Silly Little Phonebook" << std::endl \
 		<< "Please enter: ADD, SEARCH, or EXIT" << std::endl;
 

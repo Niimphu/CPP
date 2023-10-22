@@ -8,21 +8,21 @@
 # include <cstdlib>
 # include <cstdio>
 
-std::string	truncateString(const std::string&);
+std::string	truncateString( const std::string& );
 
 class	PhoneBook {
 public:
-	PhoneBook();
+	PhoneBook( void );
 
-	void	addContact();
-	void	searchContacts();
-	void	printPhoneBook();
-	void	printContact(const int);
+	void	addContact( void );
+	void	searchContacts( void );
+	void	printPhoneBook( void );
+	void	printContact( const int );
 
-	void	incrementIndex();
-	void	incrementCount();
+	void	incrementIndex( void );
+	void	incrementCount( void );
 
-	bool	isValidIndex(const std::string&);
+	bool	isValidIndex( const std::string& );
 
 private:
 	Contact	_contacts[8];

@@ -2,7 +2,7 @@
 
 Contact::Contact() : _firstName(""), _lastName(""), _nickname(""), _phoneNumber(""), _darkestSecret("") {}
 
-bool	Contact::isValidPhoneNumber() {
+bool	Contact::isValidPhoneNumber( void ) {
 	if (_phoneNumber.empty())
 		return false;
 	bool	containsDigit = false;
@@ -17,42 +17,42 @@ bool	Contact::isValidPhoneNumber() {
 	return false;
 }
 
-std::string	Contact::getFirstName() {
+std::string	Contact::getFirstName( void ) {
 	return _firstName;
 }
 
-std::string	Contact::getLastName() {
+std::string	Contact::getLastName( void ) {
 	return _lastName;
 }
 
-std::string	Contact::getNickname() {
+std::string	Contact::getNickname( void ) {
 	return _nickname;
 }
 
-std::string	Contact::getPhoneNumber() {
+std::string	Contact::getPhoneNumber( void ) {
 	return _phoneNumber;
 }
 
-std::string	Contact::getDarkestSecret() {
+std::string	Contact::getDarkestSecret( void ) {
 	return _darkestSecret;
 }
 
-void	Contact::setFirstName(const std::string& newFirstName) {
+void	Contact::setFirstName( const std::string& newFirstName ) {
 	_firstName = newFirstName;
 }
 
-void	Contact::setLastName(const std::string& newLastName) {
+void	Contact::setLastName( const std::string& newLastName ) {
 	_lastName = newLastName;
 }
 
-void	Contact::setNickname(const std::string& newNickname) {
+void	Contact::setNickname( const std::string& newNickname ) {
 	_nickname = newNickname;
 }
 
-void	Contact::setPhoneNumber(const std::string& newPhoneNumber) {
+void	Contact::setPhoneNumber( const std::string& newPhoneNumber ) {
 	_phoneNumber = newPhoneNumber;
 }
 
-void	Contact::setDarkestSecret(const std::string& newDarkestSecret) {
+void	Contact::setDarkestSecret( const std::string& newDarkestSecret ) {
 	_darkestSecret = newDarkestSecret;
 }

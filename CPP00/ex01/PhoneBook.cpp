@@ -1,9 +1,9 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : _i(0), _count(0) {
+PhoneBook::PhoneBook( void ) : _i(0), _count(0) {
 }
 
-void	PhoneBook::addContact() {
+void	PhoneBook::addContact( void ) {
 	Contact	newContact;
 
 	std::cout << "Please enter the following contact details: " << std::endl;
@@ -20,7 +20,7 @@ void	PhoneBook::addContact() {
 	std::cout << "New contact " << newContact.getFirstName() << " added to phonebook" << std::endl;
 }
 
-void	PhoneBook::searchContacts() {
+void	PhoneBook::searchContacts( void ) {
 	if (!_count) {
 		std::cout << "Please ADD a contact before SEARCHing" << std::endl;
 		return ;
@@ -36,7 +36,7 @@ void	PhoneBook::searchContacts() {
 	printContact(atoi(indexInput.c_str()) - 1);
 }
 
-void	PhoneBook::printPhoneBook() {
+void	PhoneBook::printPhoneBook( void ) {
 	std::cout << "-------------------------------------------------------------------" << std::endl;
 	std::cout << "|Index     |First name|Last name |Nickname  |Number    |Secret    |" << std::endl;
 	std::cout << "-------------------------------------------------------------------" << std::endl;
@@ -72,14 +72,14 @@ void PhoneBook::printContact(const int i) {
 	std::cout << "Darkest secret: " << _contacts[i].getDarkestSecret() << std::endl;
 }
 
-void	PhoneBook::incrementIndex() {
+void	PhoneBook::incrementIndex( void ) {
 	if (_i < 7)
 		_i++;
 	else
 		_i = 0;
 }
 
-void	PhoneBook::incrementCount() {
+void	PhoneBook::incrementCount( void ) {
 	if (_count < 8)
 		_count++;
 }
