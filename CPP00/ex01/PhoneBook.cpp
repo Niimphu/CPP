@@ -28,9 +28,12 @@ void	PhoneBook::searchContacts() {
 	printPhoneBook();
 
 	std::string	indexInput = getInput("Enter the index of the contact you would like to see");
+	char		stringInt[2];
+	sprintf(stringInt, "%d", _count);
+	std::string	printInt(stringInt);
 	while (!isValidIndex(indexInput))
-		indexInput = getInput("Please enter a number between 1 and " + std::to_string(_count));
-	printContact(stoi(indexInput) - 1);
+		indexInput = getInput("Please enter a number between 1 and " + printInt);
+	printContact(atoi(indexInput.c_str()) - 1);
 }
 
 void	PhoneBook::printPhoneBook() {
@@ -56,7 +59,7 @@ bool	PhoneBook::isValidIndex(const std::string& indexString) {
 		if (!std::isdigit(indexString[i]))
 			return false;
 	}
-	if (std::stoi(indexString) > 0 && std::stoi(indexString) <= _count)
+	if (atoi(indexString.c_str()) > 0 && atoi(indexString.c_str()) <= _count)
 		return true;
 	return false;
 }

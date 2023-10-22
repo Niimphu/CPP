@@ -5,6 +5,8 @@
 # include <iomanip>
 # include <iostream>
 # include <string>
+# include <cstdlib>
+# include <cstdio>
 
 std::string	truncateString(const std::string&);
 
