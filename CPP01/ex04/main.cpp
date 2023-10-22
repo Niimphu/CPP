@@ -12,14 +12,14 @@ int	main( int argc, char** argv ) {
 	}
 
 	const std::string	inputFilename = argv[1];
-	std::ifstream		inputFile(inputFilename);
+	std::ifstream		inputFile(inputFilename.c_str());
 	if (!inputFile.is_open()) {
 		std::cerr << "Unable to open file " << inputFilename << std::endl;
 		return (1);
 	}
 
 	const std::string	outputFilename = inputFilename + ".replace";
-	std::ofstream		outputFile(outputFilename);
+	std::ofstream		outputFile(outputFilename.c_str());
 	if (!inputFile.is_open()) {
 		std::cerr << "Unable to create file " << outputFilename << std::endl;
 		inputFile.close();
