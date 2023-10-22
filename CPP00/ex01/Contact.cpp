@@ -5,12 +5,16 @@ Contact::Contact() : _firstName(""), _lastName(""), _nickname(""), _phoneNumber(
 bool	Contact::isValidPhoneNumber() {
 	if (_phoneNumber.empty())
 		return false;
+	bool	containsDigit = false;
 	for (size_t i = 0; i < _phoneNumber.length(); ++i) {
-		if (!std::isdigit(_phoneNumber[i]) && !std::isspace(_phoneNumber[i])) {
+		if (!std::isdigit(_phoneNumber[i]) && !std::isspace(_phoneNumber[i]))
 			return false;
-		}
+		if (std::isdigit(_phoneNumber[i]))
+			containsDigit = true;
 	}
-	return true;
+	if (containsDigit)
+		return true;
+	return false;
 }
 
 std::string	Contact::getFirstName() {
