@@ -1,4 +1,5 @@
 .idea/
+.DS_Store/
 CPP00/ex00/megaphone
 CPP00/ex01/book
 CPP00/ex02/account
