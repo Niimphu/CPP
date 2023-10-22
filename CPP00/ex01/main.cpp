@@ -1,5 +1,7 @@
 #include "PhoneBook.hpp"
 
+bool	isEmpty( const std::string& input );
+
 int	main() {
 	std::cout << "Welcome to your Silly Little Phonebook" << std::endl \
 		<< "Please enter: ADD, SEARCH, or EXIT" << std::endl;
@@ -23,17 +25,27 @@ int	main() {
 	return 0;
 }
 
-std::string	getInput(const std::string& fieldName) {
+std::string	getInput( const std::string& fieldName ) {
 	std::string input = "";
-	while (input.empty()) {
+	while (isEmpty(input)) {
 		std::cout << fieldName << ": " << std::flush;
 		std::getline(std::cin, input);
 	}
 	return input;
 }
 
-std::string	truncateString(const std::string& inputString) {
+std::string	truncateString( const std::string& inputString ) {
 	if (inputString.length() > 10)
 		return (inputString.substr(0,9) + '.');
 	return inputString;
+}
+
+bool	isEmpty( const std::string& input ) {
+	if (input.empty())
+		return true;
+	for (int i = 0; input[i]; ++i) {
+		if (!std::isspace(input[i]))
+			return false;
+	}
+	return true;
 }
