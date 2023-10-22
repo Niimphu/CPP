@@ -77,13 +77,13 @@ int	Account::getNbWithdrawals( void ) {
 	return _totalNbWithdrawals;
 }
 
-void Account::_displayTimestamp() {
-	std::time_t currentTime = std::time(nullptr);
+void Account::_displayTimestamp( void ) {
+	std::time_t currentTime = std::time(NULL);
 
 	char timestamp[16];
 	std::tm* localTime = std::localtime(&currentTime);
 
-	if (localTime != nullptr) {
+	if (localTime != NULL) {
 		std::strftime(timestamp, sizeof(timestamp), "%Y%d%m_%H%M%S", localTime);
 		std::cout << "[" << timestamp << "] " << std::flush;
 	} else {
