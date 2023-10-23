@@ -6,7 +6,7 @@ std::string	replace( std::string line, const std::string& s1, const std::string&
 
 int	main( int argc, char** argv ) {
 	if (argc != 4) {
-		std::cerr << "Invalid number of arguments: expected syntax: ./loser <filename> <string1> <string2>"
+		std::cerr << "Usage: ./loser <filename> <string1> <string2>"
 				  << std::endl;
 		return 1;
 	}
