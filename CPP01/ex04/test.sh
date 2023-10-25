@@ -14,4 +14,4 @@ make
 
 ./loser example bee "FUCKING LOSER"
 
-echo "Output saved to 'example.test'"
+echo "Output saved to 'example.replace'"
