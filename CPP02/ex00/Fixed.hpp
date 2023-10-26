@@ -7,7 +7,10 @@
 class Fixed {
 public:
 	Fixed();
+	Fixed( const Fixed& );
 	~Fixed();
+
+	Fixed &operator=( const Fixed& );
 
 	void	setRawBits( int const );
 
