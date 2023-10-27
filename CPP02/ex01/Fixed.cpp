@@ -6,6 +6,14 @@ Fixed::Fixed() : _rawBits(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
+Fixed::Fixed( const int& intValue ) : _rawBits( intValue << _fractionalBits ) {
+	std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed( const int& floatValue ) : _rawBits( ??? ) {
+	std::cout << "Float constructor called" << std::endl;
+}
+
 Fixed::Fixed( const Fixed& original ) {
 	this->_rawBits = original._rawBits;
 	std::cout << "Copy constructor called" << std::endl;
