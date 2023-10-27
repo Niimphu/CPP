@@ -8,8 +8,8 @@ void	Harl::complain( std::string level ) {
 	std::string levels[] = { "DEBUG", "INFO", "WARNING", "ERROR"};
 
 	int	i;
-	for (i = 0; levels[i].compare(level); ++i) {
-		if (i >= 4)
+	for (i = 0; i < 5; ++i) {
+		if (i >= 4 || !levels[i].compare(level))
 			break ;
 	}
 	switch	(i){

@@ -15,7 +15,7 @@ int	main( int argc, char** argv ) {
 	std::ifstream		inputFile(inputFilename.c_str());
 	if (!inputFile.is_open()) {
 		std::cerr << "Unable to open file " << inputFilename << std::endl;
-		return (1);
+		return 1;
 	}
 
 	const std::string	outputFilename = inputFilename + ".replace";
@@ -23,15 +23,22 @@ int	main( int argc, char** argv ) {
 	if (!inputFile.is_open()) {
 		std::cerr << "Unable to create file " << outputFilename << std::endl;
 		inputFile.close();
-		return (1);
+		return 1;
 	}
 
 	std::string	s1 = argv[2];
 	std::string	s2 = argv[3];
 	std::string	line;
+	std::string	inputFileContents = "";
+	bool		firstLine = true;
 	while (std::getline(inputFile, line)) {
-		outputFile << replace(line, s1, s2) << std::endl;
+		if (!firstLine) {
+			inputFileContents += "\n";
+		}
+		inputFileContents += line;
+		firstLine = false;
 	}
+	outputFile << replace(inputFileContents, s1, s2) << std::endl;
 
 	inputFile.close();
 	outputFile.close();

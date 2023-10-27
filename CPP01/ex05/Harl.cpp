@@ -9,10 +9,13 @@ void	Harl::complain( std::string level ) {
 	std::string levels[] = { "DEBUG", "INFO", "WARNING", "ERROR"};
 
 	int	i;
-	for (i = 0; levels[i].compare(level); ++i) {
+	for (i = 0; i < 5; ++i) {
 		if (i >= 4) {
 			std::cerr << "Complaint not found :[ please type DEBUG, INFO, WARNING or ERROR" << std::endl;
 			return ;
+		}
+		if (!levels[i].compare(level)) {
+			break ;
 		}
 	}
 	(this->*funcPointer[i])();

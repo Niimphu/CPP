@@ -15,5 +15,7 @@ int	main( void ) {
 
 	delete[] horde;
 	delete[] horde2;
+
+	return 0;
 }
 

@@ -11,4 +11,6 @@ int	main( void ) {
 	std::cout << std::endl;
 
 	delete Fred;
+
+	return 0;
 }

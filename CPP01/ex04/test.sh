@@ -12,6 +12,6 @@ fi
 
 make
 
-./loser example bee "FUCKING LOSER"
+./loser example bee "wasp"
 
 echo "Output saved to 'example.replace'"
