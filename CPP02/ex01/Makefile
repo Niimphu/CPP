@@ -1,7 +1,7 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-NAME = talking
+NAME = useful
 
 SOURCE = main.cpp Fixed.cpp
 
