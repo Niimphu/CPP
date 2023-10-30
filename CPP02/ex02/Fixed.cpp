@@ -10,7 +10,7 @@ Fixed::Fixed( const int intValue ) : _rawBits( intValue << _fractionalBits ) {
 //	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed( const float floatValue ) : _rawBits( static_cast<int>(floatValue * (1 << _fractionalBits)) ) {
+Fixed::Fixed( const float floatValue ) : _rawBits( static_cast<int>(roundf(floatValue * (1 << _fractionalBits))) ) {
 //	std::cout << "Float constructor called" << std::endl;
 }
 
@@ -38,6 +38,7 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
 bool	Fixed::operator>( const Fixed& other ) {
 	return (_rawBits > other.getRawBits());
 }
+
 bool	Fixed::operator<( const Fixed& other ) {
 	return (_rawBits < other.getRawBits());
 }
@@ -59,31 +60,19 @@ bool	Fixed::operator!=( const Fixed& other ) {
 }
 
 Fixed	Fixed::operator+( const Fixed& other ) {
-	int	addedRawBits = this->_rawBits + other.getRawBits();
-	Fixed	result;
-	result.setRawBits(addedRawBits);
-	return result;
+	return ( this->toFloat() + other.toFloat() );
 }
 
 Fixed	Fixed::operator-( const Fixed& other ) {
-	int	subtractedRawBits = this->_rawBits - other.getRawBits();
-	Fixed	result;
-	result.setRawBits(subtractedRawBits);
-	return result;
+	return ( this->toFloat() - other.toFloat() );
 }
 
 Fixed	Fixed::operator*( const Fixed& other ) {
-	int	multipliedRawBits = this->_rawBits * other.getRawBits();
-	Fixed	result;
-	result.setRawBits(multipliedRawBits);
-	return result;
+	return ( this->toFloat() * other.toFloat() );
 }
 
 Fixed	Fixed::operator/( const Fixed& other ) {
-	int	dividedRawBits = this->_rawBits / other.getRawBits();
-	Fixed	result;
-	result.setRawBits(dividedRawBits);
-	return result;
+	return ( this->toFloat() / other.toFloat() );
 }
 
 Fixed&	Fixed::operator++( void ) {
