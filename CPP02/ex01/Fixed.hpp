@@ -12,7 +12,24 @@ public:
 	Fixed( const float );
 	~Fixed();
 
-	Fixed &operator=( const Fixed& );
+	Fixed	&operator=( const Fixed& );
+
+	bool	operator>( const Fixed& );
+	bool	operator<( const Fixed& );
+	bool	operator>=( const Fixed& );
+	bool	operator<=( const Fixed& );
+	bool	operator==( const Fixed& );
+	bool	operator!=( const Fixed& );
+
+	Fixed	operator+( const Fixed& );
+	Fixed	operator-( const Fixed& );
+	Fixed	operator*( const Fixed& );
+	Fixed	operator/( const Fixed& );
+
+	Fixed&	operator++( void );
+	Fixed	operator++( int );
+	Fixed&	operator--( void );
+	Fixed	operator--( int );
 
 	friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
