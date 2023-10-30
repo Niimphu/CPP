@@ -31,6 +31,11 @@ public:
 	Fixed&	operator--( void );
 	Fixed	operator--( int );
 
+	static Fixed&		min( Fixed&, Fixed& );
+	static const Fixed&	min( const Fixed&, const Fixed& );
+	static Fixed&		max( Fixed&, Fixed& );
+	static const Fixed&	max( const Fixed&, const Fixed& );
+
 	friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 	float	toFloat( void ) const;

@@ -72,6 +72,10 @@ Fixed	Fixed::operator*( const Fixed& other ) {
 }
 
 Fixed	Fixed::operator/( const Fixed& other ) {
+	if ( other.toFloat() == 0 ) {
+		std::cerr << "Error: division by 0" << std::endl;
+		return ( Fixed( 0 ) );
+	}
 	return ( this->toFloat() / other.toFloat() );
 }
 
@@ -94,6 +98,42 @@ Fixed	Fixed::operator--( int ) {
 	Fixed	copy(*this);
 	--_rawBits;
 	return copy;
+}
+
+Fixed&	Fixed::min( Fixed& a, Fixed& b ) {
+	if (a._rawBits < b._rawBits) {
+		return a;
+	}
+	else {
+		return b;
+	}
+}
+
+const Fixed&	Fixed::min( const Fixed& a, const Fixed& b ) {
+	if (a._rawBits < b._rawBits) {
+		return a;
+	}
+	else {
+		return b;
+	}
+}
+
+Fixed&	Fixed::max( Fixed& a, Fixed& b ) {
+	if (a._rawBits > b._rawBits) {
+		return a;
+	}
+	else {
+		return b;
+	}
+}
+
+const Fixed&	Fixed::max( const Fixed& a, const Fixed& b ) {
+	if (a._rawBits > b._rawBits) {
+		return a;
+	}
+	else {
+		return b;
+	}
 }
 
 float	Fixed::toFloat( void ) const {
