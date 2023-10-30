@@ -94,7 +94,7 @@ Fixed&	Fixed::operator++( void ) {
 Fixed	Fixed::operator++( int ) {
 	Fixed	copy(*this);
 	++_rawBits;
-	return *this;
+	return copy;
 }
 
 Fixed&	Fixed::operator--( void ) {
@@ -104,7 +104,7 @@ Fixed&	Fixed::operator--( void ) {
 Fixed	Fixed::operator--( int ) {
 	Fixed	copy(*this);
 	--_rawBits;
-	return *this;
+	return copy;
 }
 
 float	Fixed::toFloat( void ) const {
