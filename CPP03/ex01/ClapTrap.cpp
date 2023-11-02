@@ -30,23 +30,23 @@ void	ClapTrap::attack( const std::string& target ) {
 
 void	ClapTrap::takeDamage( unsigned int damage ) {
 	if ( _hitPoints == 0 ) {
-		std::cout << "ClapTrap " << _name << " is already dead!" << std::endl;
+		std::cout << _name << " is already dead!" << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << _name << " takes " << damage << " damage" << std::endl;
+	std::cout << _name << " takes " << damage << " damage" << std::endl;
 	if ( damage >= _hitPoints ) {
-		std::cout << "ClapTrap " << _name << " is now dead!" << std::endl;
+		std::cout << _name << " is now dead!" << std::endl;
 		_hitPoints = 0;
 		return ;
 	}
 	_hitPoints -= damage;
-	std::cout << "ClapTrap " << _name << " now has " << _hitPoints << " hitpoint(s)" << std::endl;
+	std::cout << << _name << " now has " << _hitPoints << " hitpoint(s)" << std::endl;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount ) {
-	std::cout << "ClapTrap " << _name << " is repaired for " << amount << " hitpoint(s)" << std::endl;
+	std::cout << << _name << " is repaired for " << amount << " hitpoint(s)" << std::endl;
 	_hitPoints += amount;
-	std::cout << "ClapTrap " << _name << " now has " << _hitPoints << " hitpoint(s)" << std::endl;
+	std::cout << << _name << " now has " << _hitPoints << " hitpoint(s)" << std::endl;
 }
 
 const std::string& ClapTrap::getName( void ) const {
