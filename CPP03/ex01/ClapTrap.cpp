@@ -40,13 +40,13 @@ void	ClapTrap::takeDamage( unsigned int damage ) {
 		return ;
 	}
 	_hitPoints -= damage;
-	std::cout << << _name << " now has " << _hitPoints << " hitpoint(s)" << std::endl;
+	std::cout << _name << " now has " << _hitPoints << " hitpoint(s)" << std::endl;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount ) {
-	std::cout << << _name << " is repaired for " << amount << " hitpoint(s)" << std::endl;
+	std::cout << _name << " is repaired for " << amount << " hitpoint(s)" << std::endl;
 	_hitPoints += amount;
-	std::cout << << _name << " now has " << _hitPoints << " hitpoint(s)" << std::endl;
+	std::cout << _name << " now has " << _hitPoints << " hitpoint(s)" << std::endl;
 }
 
 const std::string& ClapTrap::getName( void ) const {
