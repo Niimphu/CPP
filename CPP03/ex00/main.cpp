@@ -2,8 +2,18 @@
 
 int	main( void ) {
 	ClapTrap randall( "Randall" );
-	ClapTrap bertha( "Bertha" );
 	randall.setAttackDamage( 3 );
+	std::cout << "Stats: " << std::endl;
+	std::cout << "Hitpoints: " << randall.getHitPoints() << std::endl;
+	std::cout << "Energy points: " << randall.getEnergyPoints() << std::endl;
+	std::cout << "Attack damage: " << randall.getAttackDamage() << std::endl;
+	std::cout << std::endl;
+
+	ClapTrap bertha( "Bertha" );
+	std::cout << "Stats: " << std::endl;
+	std::cout << "Hitpoints: " << randall.getHitPoints() << std::endl;
+	std::cout << "Energy points: " << randall.getEnergyPoints() << std::endl;
+	std::cout << "Attack damage: " << randall.getAttackDamage() << std::endl;
 	std::cout << std::endl;
 
 	randall.attack( bertha.getName() );
