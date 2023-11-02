@@ -5,11 +5,6 @@ ClapTrap::ClapTrap( const std::string& name ) : _name( name ), \
 	std::cout << "ClapTrap " << _name << " assembled" << std::endl;
 }
 
-ClapTrap::ClapTrap( const std::string& name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage) : \
-	_name( name ), 	_hitPoints( hitPoints ), _energyPoints( energyPoints ), _attackDamage( attackDamage ){
-	std::cout << "ClapTrap " << _name << " assembled" << std::endl;
-}
-
 ClapTrap::~ClapTrap() {
 	std::cout << "ClapTrap " << _name << " destroyed" << std::endl;
 }

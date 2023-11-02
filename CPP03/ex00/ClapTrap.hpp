@@ -7,7 +7,6 @@
 class ClapTrap {
 public:
 	ClapTrap( const std::string& );
-	ClapTrap( const std::string&, unsigned int, unsigned int, unsigned int );
 	~ClapTrap();
 
 	void	attack( const std::string& );
