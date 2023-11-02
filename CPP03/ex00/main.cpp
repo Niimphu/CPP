@@ -11,9 +11,9 @@ int	main( void ) {
 
 	ClapTrap bertha( "Bertha" );
 	std::cout << "Stats: " << std::endl;
-	std::cout << "Hitpoints: " << randall.getHitPoints() << std::endl;
-	std::cout << "Energy points: " << randall.getEnergyPoints() << std::endl;
-	std::cout << "Attack damage: " << randall.getAttackDamage() << std::endl;
+	std::cout << "Hitpoints: " << bertha.getHitPoints() << std::endl;
+	std::cout << "Energy points: " << bertha.getEnergyPoints() << std::endl;
+	std::cout << "Attack damage: " << bertha.getAttackDamage() << std::endl;
 	std::cout << std::endl;
 
 	randall.attack( bertha.getName() );
