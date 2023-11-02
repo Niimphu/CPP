@@ -11,37 +11,37 @@ ClapTrap::~ClapTrap() {
 
 void	ClapTrap::attack( const std::string& target ) {
 	if ( _energyPoints == 0 ) {
-		std::cout << _name << " does not have enough energy to attack" << std::endl;
+		std::cout << "ClapTrap " << _name << " does not have enough energy to attack" << std::endl;
 		return ;
 	}
 	if ( _hitPoints == 0 ) {
-		std::cout << _name << " is dead and cannot attack!" << std::endl;
+		std::cout << "ClapTrap " << _name << " is dead and cannot attack!" << std::endl;
 		return ;
 	}
-	std::cout << _name << " attacks " << target << " for " << _attackDamage << " damage" << std::endl;
+	std::cout << "ClapTrap " << _name << " attacks " << target << " for " << _attackDamage << " damage" << std::endl;
 	--_energyPoints;
 	return ;
 }
 
 void	ClapTrap::takeDamage( unsigned int damage ) {
 	if ( _hitPoints == 0 ) {
-		std::cout << _name << " is already dead!" << std::endl;
+		std::cout << "ClapTrap " << _name << " is already dead!" << std::endl;
 		return ;
 	}
-	std::cout << _name << " takes " << damage << " damage" << std::endl;
+	std::cout << "ClapTrap " << _name << " takes " << damage << " damage" << std::endl;
 	if ( damage >= _hitPoints ) {
-		std::cout << _name << " is now dead!" << std::endl;
+		std::cout << "ClapTrap " << _name << " is now dead!" << std::endl;
 		_hitPoints = 0;
 		return ;
 	}
 	_hitPoints -= damage;
-	std::cout << _name << " now has " << _hitPoints << " hitpoint(s)" << std::endl;
+	std::cout << "ClapTrap " << _name << " now has " << _hitPoints << " hitpoint(s)" << std::endl;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount ) {
-	std::cout << _name << " is repaired for " << amount << " hitpoint(s)" << std::endl;
+	std::cout << "ClapTrap " << _name << " is repaired for " << amount << " hitpoint(s)" << std::endl;
 	_hitPoints += amount;
-	std::cout << _name << " now has " << _hitPoints << " hitpoint(s)" << std::endl;
+	std::cout << "ClapTrap " << _name << " now has " << _hitPoints << " hitpoint(s)" << std::endl;
 }
 
 const std::string& ClapTrap::getName( void ) const {
