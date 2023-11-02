@@ -4,6 +4,10 @@
 
 int	main( void ) {
 	DiamondTrap	jolene( "Jolene" );
+	std::cout << jolene.getName() << "'s stats" << std::endl;
+	std::cout << "Hitpoints: " << jolene.getHitPoints() << std::endl;
+	std::cout << "Energy points: " << jolene.getEnergyPoints() << std::endl;
+	std::cout << "Attack damage: " << jolene.getAttackDamage() << std::endl;
 	std::cout << std::endl;
 
 //	ScavTrap	jeremiah( "Jeremiah" );

@@ -3,7 +3,7 @@
 DiamondTrap::DiamondTrap( const std::string& name ) : ClapTrap( name + "_clap_name" ),  ScavTrap( name ), FragTrap( name ) {
 	_name = name;
 	std::cout << "My name is " << _name << std::endl;
-	std::cout << "My name ClapTrap name is " << ClapTrap::getName() << std::endl;
+	std::cout << "My ClapTrap name is " << ClapTrap::getName() << std::endl;
 }
 
 DiamondTrap::~DiamondTrap() {
