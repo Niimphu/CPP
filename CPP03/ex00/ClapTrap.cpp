@@ -1,12 +1,29 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap() {}
+
 ClapTrap::ClapTrap( const std::string& name ) : _name( name ), \
 	_hitPoints( 10 ), _energyPoints( 10 ), _attackDamage( 0 ) {
 	std::cout << "ClapTrap " << _name << " assembled" << std::endl;
 }
 
+ClapTrap::ClapTrap( const ClapTrap& original ) : _name( original._name ), _hitPoints( original._hitPoints ), \
+			_energyPoints(original._energyPoints), _attackDamage( original._attackDamage ) {
+	std::cout << "ClapTrap " << _name << " duplicated" << std::endl;
+}
+
 ClapTrap::~ClapTrap() {
 	std::cout << "ClapTrap " << _name << " destroyed" << std::endl;
+}
+
+ClapTrap&	ClapTrap::operator=( const ClapTrap& other ) {
+	if ( this != &other ) {
+		this->_hitPoints = other._hitPoints;
+		this->_energyPoints = other._energyPoints;
+		this->_attackDamage = other._attackDamage;
+		std::cout << "ClapTrap " << this->_name << " has copied " << other._name << "'s stats" << std::endl;
+	}
+	return *this;
 }
 
 void	ClapTrap::attack( const std::string& target ) {

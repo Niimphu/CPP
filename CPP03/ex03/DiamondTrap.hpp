@@ -14,6 +14,7 @@ public:
 
 private:
 	std::string	_name;
+
 };
 
 #endif

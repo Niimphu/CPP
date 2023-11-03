@@ -8,7 +8,10 @@ class ClapTrap {
 public:
 	ClapTrap( const std::string& );
 	ClapTrap( const std::string&, unsigned int, unsigned int, unsigned int );
+	ClapTrap( const ClapTrap& );
 	~ClapTrap();
+
+	ClapTrap	&operator=( const ClapTrap& );
 
 	virtual void	attack( const std::string& );
 
@@ -25,6 +28,8 @@ public:
 	void	setAttackDamage( unsigned int );
 
 private:
+	ClapTrap();
+
 	const std::string	_name;
 	unsigned int		_hitPoints;
 	unsigned int		_energyPoints;
