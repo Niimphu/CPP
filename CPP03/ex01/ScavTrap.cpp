@@ -1,6 +1,15 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( const std::string& name ) : ClapTrap( name, 100, 50, 20 ) {
+ScavTrap::ScavTrap() {
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
+}
+
+ScavTrap::ScavTrap( const std::string& name ) : ClapTrap( name ) {
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 	std::cout << "ScavTrap " << getName() << " assembled" << std::endl;
 }
 

@@ -10,6 +10,8 @@ int	main( void ) {
 	std::cout << "Attack damage: " << jolene.getAttackDamage() << std::endl;
 	std::cout << std::endl;
 
+	jolene.attack("Fred");
+
 //	ScavTrap	jeremiah( "Jeremiah" );
 //	std::cout << jeremiah.getName() << "'s stats" << std::endl;
 //	std::cout << "Hitpoints: " << jeremiah.getHitPoints() << std::endl;

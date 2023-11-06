@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() {}
+ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10), _attackDamage(0) {}
 
 ClapTrap::ClapTrap( const std::string& name ) : _name( name ), \
 	_hitPoints( 10 ), _energyPoints( 10 ), _attackDamage( 0 ) {
@@ -10,11 +10,6 @@ ClapTrap::ClapTrap( const std::string& name ) : _name( name ), \
 ClapTrap::ClapTrap( const ClapTrap& original ) : _name( original._name ), _hitPoints( original._hitPoints ), \
 			_energyPoints(original._energyPoints), _attackDamage( original._attackDamage ) {
 	std::cout << "ClapTrap " << _name << " duplicated" << std::endl;
-}
-
-ClapTrap::ClapTrap( const std::string& name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage) : \
-	_name( name ), 	_hitPoints( hitPoints ), _energyPoints( energyPoints ), _attackDamage( attackDamage ){
-	std::cout << "ClapTrap " << _name << " assembled" << std::endl;
 }
 
 ClapTrap&	ClapTrap::operator=( const ClapTrap& other ) {

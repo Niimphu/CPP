@@ -3,12 +3,12 @@
 
 # include "ClapTrap.hpp"
 
-class FragTrap: public ClapTrap {
+class FragTrap: virtual public ClapTrap {
 public:
+	FragTrap();
 	FragTrap( const std::string& );
 	~FragTrap();
 
-	void	attack( const std::string& );
 	void	highFivesGuys( void );
 
 };
