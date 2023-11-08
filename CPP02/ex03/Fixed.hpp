@@ -37,8 +37,6 @@ public:
 	static Fixed&		max( Fixed&, Fixed& );
 	static const Fixed&	max( const Fixed&, const Fixed& );
 
-	friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
-
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
 
@@ -52,5 +50,7 @@ private:
 	static const int	_fractionalBits;
 
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif

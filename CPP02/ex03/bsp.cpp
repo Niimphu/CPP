@@ -2,6 +2,7 @@
 #include "Fixed.hpp"
 
 float	getAreaOfTriangle( Point const, Point const, Point const );
+float	absolute( const float );
 
 bool	bsp( Point const a, Point const b, Point const c, Point const point ) {
 	float	triangleArea = getAreaOfTriangle( a, b, c );
@@ -22,7 +23,14 @@ bool	bsp( Point const a, Point const b, Point const c, Point const point ) {
 }
 
 float	getAreaOfTriangle( Point const a, Point const b, Point const c ) {
-	return (0.5 * abs( a.getX().toFloat() * (b.getY().toFloat() - c.getY().toFloat())
+	return (0.5 * absolute( a.getX().toFloat() * (b.getY().toFloat() - c.getY().toFloat())
 		+ b.getX().toFloat() * (c.getY().toFloat() - a.getY().toFloat())
 		+ c.getX().toFloat() * (a.getY().toFloat() - b.getY().toFloat()) ));
+}
+
+float	absolute( const float value ) {
+	if ( value < 0 ) {
+		return ( -1 * value );
+	}
+	return value;
 }
