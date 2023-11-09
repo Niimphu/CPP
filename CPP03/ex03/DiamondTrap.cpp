@@ -1,10 +1,8 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap( const std::string& name ) : ClapTrap( name + "_clap_name" ), _name(name) {
+DiamondTrap::DiamondTrap( const std::string& name ) : ClapTrap( name + "_clap_name" ), ScavTrap( name ), FragTrap( name ), _name(name) {
 	std::cout << "DiamondTrap " << _name << " assembled" << std::endl;
-	this->_hitPoints = FragTrap::_hitPoints;
-	this->_energyPoints = ScavTrap::_energyPoints;
-	this->_attackDamage = FragTrap::_attackDamage;
+	setEnergyPoints(ScavTrap::getEnergyPoints());
 }
 
 DiamondTrap::~DiamondTrap() {

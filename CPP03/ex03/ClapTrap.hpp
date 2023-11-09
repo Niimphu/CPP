@@ -4,6 +4,10 @@
 # include "iostream"
 # include "string"
 
+# define DEFAULT_CT_HITPOINTS 10
+# define DEFAULT_CT_ENERGYPOINTS 10
+# define DEFAULT_CT_ATTACKDAMAGE 0
+
 class ClapTrap {
 public:
 	ClapTrap( const std::string& );

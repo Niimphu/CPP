@@ -1,14 +1,18 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() {
+FragTrap::FragTrap() : ClapTrap() {
 	this->_hitPoints = 100;
-	this->_energyPoints = 100;
+	if ( this->_energyPoints == DEFAULT_CT_ENERGYPOINTS ) {
+		this->_energyPoints = 100;
+	}
 	this->_attackDamage = 30;
 }
 
 FragTrap::FragTrap( const std::string& name ) : ClapTrap( name ) {
 	this->_hitPoints = 100;
-	this->_energyPoints = 100;
+	if ( this->_energyPoints == DEFAULT_CT_ENERGYPOINTS ) {
+		this->_energyPoints = 100;
+	}
 	this->_attackDamage = 30;
 	std::cout << "FragTrap " << getName() << " assembled" << std::endl;
 }
