@@ -10,7 +10,7 @@ int	main( void ) {
 	std::cout << "Attack damage: " << jolene.getAttackDamage() << std::endl;
 	std::cout << std::endl;
 
-	DiamondTrap	orion( "Orion" );
+	ScavTrap	orion( "Orion" );
 	std::cout << orion.getName() << "'s stats" << std::endl;
 	std::cout << "Hitpoints: " << orion.getHitPoints() << std::endl;
 	std::cout << "Energy points: " << orion.getEnergyPoints() << std::endl;
@@ -18,39 +18,24 @@ int	main( void ) {
 	std::cout << std::endl;
 
 	jolene.whoAmI();
+	orion.guardGate();
 	std::cout << std::endl;
 
 	jolene.attack( orion.getName() );
 	orion.takeDamage( jolene.getAttackDamage() );
+	orion.attack( jolene.getName() );
+	jolene.takeDamage( orion.getAttackDamage() );
 	std::cout << std::endl;
 
-//	ScavTrap	jeremiah( "Jeremiah" );
-//	std::cout << jeremiah.getName() << "'s stats" << std::endl;
-//	std::cout << "Hitpoints: " << jeremiah.getHitPoints() << std::endl;
-//	std::cout << "Energy points: " << jeremiah.getEnergyPoints() << std::endl;
-//	std::cout << "Attack damage: " << jeremiah.getAttackDamage() << std::endl;
-//	std::cout << std::endl;
-//
-//	FragTrap	gregory( "Gregory" );
-//	gregory.setAttackDamage( 42 );
-//	std::cout << gregory.getName() << "'s stats" << std::endl;
-//	std::cout << "Hitpoints: " << gregory.getHitPoints() << std::endl;
-//	std::cout << "Energy points: " << gregory.getEnergyPoints() << std::endl;
-//	std::cout << "Attack damage: " << gregory.getAttackDamage() << std::endl;
-//	std::cout << std::endl;
-//
-//	jeremiah.attack( gregory.getName() );
-//	gregory.takeDamage( jeremiah.getAttackDamage() );
-//	std::cout << std::endl;
-//
-//	gregory.attack( jeremiah.getName() );
-//	jeremiah.takeDamage( gregory.getAttackDamage() );
-//	gregory.attack( jeremiah.getName() );
-//	jeremiah.takeDamage( gregory.getAttackDamage() );
-//	gregory.attack( jeremiah.getName() );
-//	jeremiah.takeDamage( gregory.getAttackDamage() );
-//	gregory.highFivesGuys();
-//	std::cout << std::endl;
+	jolene.attack( orion.getName() );
+	orion.takeDamage( jolene.getAttackDamage() );
+	jolene.attack( orion.getName() );
+	orion.takeDamage( jolene.getAttackDamage() );
+	jolene.attack( orion.getName() );
+	orion.takeDamage( jolene.getAttackDamage() );
+	jolene.attack( orion.getName() );
+	orion.takeDamage( jolene.getAttackDamage() );
+	std::cout << std::endl;
 
 	return 0;
 }
