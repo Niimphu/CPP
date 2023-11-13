@@ -10,7 +10,7 @@ int	main( void ) {
 	std::cout << "Attack damage: " << jolene.getAttackDamage() << std::endl;
 	std::cout << std::endl;
 
-	ScavTrap	orion( "Orion" );
+	FragTrap	orion( "Orion" );
 	std::cout << orion.getName() << "'s stats" << std::endl;
 	std::cout << "Hitpoints: " << orion.getHitPoints() << std::endl;
 	std::cout << "Energy points: " << orion.getEnergyPoints() << std::endl;
@@ -18,7 +18,11 @@ int	main( void ) {
 	std::cout << std::endl;
 
 	jolene.whoAmI();
-	orion.guardGate();
+	orion.highFivesGuys();
+	std::cout << std::endl;
+
+	jolene.guardGate();
+	jolene.highFivesGuys();
 	std::cout << std::endl;
 
 	jolene.attack( orion.getName() );
