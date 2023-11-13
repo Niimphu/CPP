@@ -1,8 +1,8 @@
 #ifndef CLAPTRAP_H
 # define CLAPTRAP_H
 
-# include "iostream"
-# include "string"
+# include <iostream>
+# include <string>
 
 # define DEFAULT_CT_HITPOINTS 10
 # define DEFAULT_CT_ENERGYPOINTS 10
