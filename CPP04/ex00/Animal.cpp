@@ -23,3 +23,15 @@ Animal&	Animal::operator=( const Animal& other ) {
 	}
 	return *this;
 }
+
+void	Animal::makeSound( void ) const {
+	std::cout << "*Generic animal noises*" << std::endl;
+}
+
+void	Animal::setType( const std::string& type ) {
+	_type = type;
+}
+
+std::string	Animal::getType( void ) const {
+	return _type;
+}
