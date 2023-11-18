@@ -7,10 +7,8 @@
 
 class Dog: public Animal {
 public:
-	Dog();
-	Dog( const std::string& );
-	Dog( const Dog& );
-	~Dog();
+	Dog( void );
+	~Dog( void );
 
 	Dog	&operator=( const Dog& );
 

@@ -1,17 +1,7 @@
 #include "Cat.hpp"
 
-Cat::Cat() {
-	this->_type = "Cat"
+Cat::Cat( void ) : Animal( "Cat" ) {
 	std::cout << "Cat default constructor called: " << _type << std::endl;
-}
-
-Cat::Cat( const std::string& type ) {
-	std::cout << "Cat constructor called: " << type << std::endl;
-}
-
-Cat::Cat( const Cat& original ) {
-	std::cout << "Cat copy constructor called: " << _type << std::endl;
-	this->_type = original._type;
 }
 
 Cat::~Cat() {

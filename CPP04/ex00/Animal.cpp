@@ -18,9 +18,10 @@ Animal::~Animal() {
 }
 
 Animal&	Animal::operator=( const Animal& other ) {
-	if (this != &other) {
+	if ( this != &other ) {
 		this->_type = other._type;
 	}
+	std::cout << "Animal copy operator overload called: " << _type << std::endl;
 	return *this;
 }
 
