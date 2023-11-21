@@ -1,17 +1,18 @@
 #include "Dog.hpp"
 
 Dog::Dog( void ) : Animal( "Dog" ) {
-	std::cout << "Cat default constructor called: " << _type << std::endl;
+	std::cout << "Dog default constructor called: " << _type << std::endl;
 }
 
 Dog::~Dog() {
-	std::cout << "Cat default destructor called: " << _type << std::endl;
+	std::cout << "Dog default destructor called: " << _type << std::endl;
 }
 
 Dog&	Dog::operator=( const Dog& other ) {
 	if (this != &other) {
 		this->_type = other._type;
 	}
+    std::cout << "Dog copy operator overload called" << std::endl;
 	return *this;
 }
 

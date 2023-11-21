@@ -12,6 +12,7 @@ Cat&	Cat::operator=( const Cat& other ) {
 	if (this != &other) {
 		this->_type = other._type;
 	}
+    std::cout << "Cat copy operator overload called" << std::endl;
 	return *this;
 }
 
