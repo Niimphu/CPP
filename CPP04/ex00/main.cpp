@@ -29,9 +29,18 @@ int main() {
 	std::cout << std::endl;
 
 	std::cout << wrongCat->getType() << std::endl;
+	wrongCat->makeSound();
+	std::cout << std::endl;
+
+	const WrongCat	*wrongCat2 = new WrongCat();
+	std::cout << std::endl;
+
+	std::cout << wrongCat2->getType() << std::endl;
+	wrongCat2->makeSound();
 	std::cout << std::endl;
 
 	delete wrongCat;
+	delete wrongCat2;
 
 	return 0;
 }
