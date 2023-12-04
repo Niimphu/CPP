@@ -6,10 +6,10 @@
 
 class Animal {
 public:
-	Animal();
+	Animal( void );
 	Animal( const std::string& );
 	Animal( const Animal& );
-	virtual ~Animal();
+	virtual ~Animal( void );
 
 	Animal	&operator=( const Animal& );
 

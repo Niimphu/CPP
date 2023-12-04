@@ -13,7 +13,7 @@ Animal::Animal( const Animal& original ) {
 	this->_type = original._type;
 }
 
-Animal::~Animal() {
+Animal::~Animal( void ) {
 	std::cout << "Animal default destructor called: " << _type << std::endl;
 }
 
