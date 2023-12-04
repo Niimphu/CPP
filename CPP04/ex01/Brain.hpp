@@ -12,9 +12,9 @@ public:
 
 	Brain	&operator=( const Brain& );
 
-	void	setIdea( const int, const std::string& );
+	void	setIdea( const std::string& );
 
-	std::string	getIdea( const int );
+	std::string	getIdea( const int& );
 
 
 private:

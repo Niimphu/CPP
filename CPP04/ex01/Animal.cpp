@@ -1,19 +1,24 @@
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-Animal::Animal() : _type( "Animal" ) {
+Animal::Animal( void ) : _type( "Animal" ), _brain( NULL ) {
+	_brain = new Brain();
 	std::cout << "Animal default constructor called: " << _type << std::endl;
 }
 
 Animal::Animal( const std::string& type ) : _type( type ) {
+	_brain = new Brain();
 	std::cout << "Animal constructor called: " << type << std::endl;
 }
 
 Animal::Animal( const Animal& original ) {
-	std::cout << "Animal copy constructor called: " << _type << std::endl;
 	this->_type = original._type;
+	this->_brain = original._brain;
+	std::cout << "Animal copy constructor called: " << _type << std::endl;
 }
 
-Animal::~Animal() {
+Animal::~Animal( void ) {
+	delete _brain;
 	std::cout << "Animal default destructor called: " << _type << std::endl;
 }
 
@@ -37,4 +42,7 @@ void	Animal::setType( const std::string& type ) {
 std::string	Animal::getType( void ) const {
 	std::cout << "Animal::getType called: " << _type << std::endl;
 	return _type;
+}
+
+void	Animal::newIdea( void ) {
 }

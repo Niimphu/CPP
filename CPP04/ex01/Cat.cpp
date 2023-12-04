@@ -4,7 +4,7 @@ Cat::Cat( void ) : Animal( "Cat" ) {
 	std::cout << "Cat default constructor called: " << _type << std::endl;
 }
 
-Cat::~Cat() {
+Cat::~Cat( void ) {
 	std::cout << "Cat default destructor called: " << _type << std::endl;
 }
 
