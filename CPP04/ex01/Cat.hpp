@@ -8,6 +8,8 @@
 class Cat: public Animal {
 public:
 	Cat( void );
+	Cat( const Cat& );
+	Cat( const Animal& );
 	~Cat( void );
 
 	Cat	&operator=( const Cat& );

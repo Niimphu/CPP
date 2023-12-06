@@ -1,19 +1,15 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-Animal::Animal( void ) : _type( "Animal" ), _brain( NULL ) {
-	_brain = new Brain();
+Animal::Animal( void ) : _type( "Animal" ), _brain( new Brain() ) {
 	std::cout << "Animal default constructor called: " << _type << std::endl;
 }
 
-Animal::Animal( const std::string& type ) : _type( type ) {
-	_brain = new Brain();
+Animal::Animal( const std::string& type ) : _type( type ), _brain ( new Brain() ) {
 	std::cout << "Animal constructor called: " << type << std::endl;
 }
 
-Animal::Animal( const Animal& original ) {
-	this->_type = original._type;
-	this->_brain = original._brain;
+Animal::Animal( const Animal& original ) : _type( original._type ), _brain( new Brain( *original._brain ) ) {
 	std::cout << "Animal copy constructor called: " << _type << std::endl;
 }
 
@@ -44,5 +40,32 @@ std::string	Animal::getType( void ) const {
 	return _type;
 }
 
-void	Animal::newIdea( void ) {
+void	Animal::newIdea( void ) const {
+	std::string	ideas[] = {
+			"food",
+			"sleep",
+			"play",
+			"chill",
+			"bed",
+			"friend",
+			"enemy",
+			"fun",
+			"bored",
+			"tired",
+			"hungry",
+			"eat",
+			"sit",
+			"relax",
+			"lie down",
+			"owner",
+			"what is the answer to life, the universe, and everything?",
+			"danger",
+			"wow",
+			"cool"
+	};
+	_brain->setIdea( ideas[ std::rand() % 20 ] );
+}
+
+void	Animal::thinkIdea( const int i ) const {
+	std::cout << "Brain says: " << _brain->getIdea( i ) << std::endl;
 }
