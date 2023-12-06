@@ -8,9 +8,8 @@ Animal::Animal( const std::string& type ) : _type( type ) {
 	std::cout << "Animal constructor called: " << type << std::endl;
 }
 
-Animal::Animal( const Animal& original ) {
+Animal::Animal( const Animal& original ) : _type( original._type ) {
 	std::cout << "Animal copy constructor called: " << _type << std::endl;
-	this->_type = original._type;
 }
 
 Animal::~Animal( void ) {
