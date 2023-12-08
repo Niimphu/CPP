@@ -18,6 +18,8 @@ int	main( void ) {
 		delete squad[ i ];
 	}
 	std::cout << std::endl;
+
+	return 0;
 }
 
 //int	main( void ) {
