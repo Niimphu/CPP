@@ -4,6 +4,8 @@
 # include <iostream>
 # include "Character.hpp"
 
+class ICharacter;
+
 class AMateria{
 public:
 	AMateria( const std::string& );
@@ -22,7 +24,7 @@ protected:
 
 
 private:
-	void	setType( const std::string& ) const;
+	void	setType( const std::string& );
 
 
 };
