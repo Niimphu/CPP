@@ -4,7 +4,7 @@
 # include <iostream>
 # include "Materia.hpp"
 
-class Cure{
+class Cure: public AMateria{
 public:
 	Cure( void );
 	~Cure( void );
