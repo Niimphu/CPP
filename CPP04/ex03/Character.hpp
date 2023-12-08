@@ -11,6 +11,8 @@ public:
 	ICharacter( const std::string& );
 	~ICharacter( void );
 
+	const std::string&	getName( void ) const;
+
 
 private:
 	ICharacter( void );

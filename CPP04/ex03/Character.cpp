@@ -10,3 +10,7 @@ ICharacter::ICharacter( const std::string& name ) : _name( name ) {
 }
 
 ICharacter::~ICharacter( void ) {}
+
+const std::string&	ICharacter::getName( void ) const{
+	return _name;
+}
