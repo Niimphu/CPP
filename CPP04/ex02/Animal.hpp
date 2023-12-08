@@ -7,6 +7,7 @@
 
 class Animal {
 public:
+	Animal( const Animal& );
 	virtual ~Animal( void );
 
 	Animal	&operator=( const Animal& );
@@ -22,7 +23,6 @@ public:
 protected:
 	Animal( void );
 	Animal( const std::string& );
-	Animal( const Animal& );
 
 	std::string	_type;
 	Brain*		_brain;
