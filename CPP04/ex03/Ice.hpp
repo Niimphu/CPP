@@ -9,7 +9,8 @@ public:
 	Ice( void );
 	~Ice( void );
 
-	void	use( ICharacter& );
+	void		use( ICharacter& );
+	AMateria*	clone( void ) const;
 
 };
 
