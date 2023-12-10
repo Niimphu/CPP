@@ -2,21 +2,23 @@
 # define CHARACTER_H
 
 # include <iostream>
-# include "Materia.hpp"
+# include "ICharacter.hpp"
+# include "AMateria.hpp"
 
 class AMateria;
 
-class ICharacter{
+class Character: public ICharacter{
 public:
-	ICharacter( const std::string& );
-	~ICharacter( void );
+	Character( void );
+	Character( const std::string& );
+	~Character( void );
 
 	const std::string&	getName( void ) const;
-
+	void				equip( AMateria* );
+	void				unequip( int );
+	void				use( int, ICharacter& );
 
 private:
-	ICharacter( void );
-
 	const std::string	_name;
 	AMateria*			_inventory[4];
 
