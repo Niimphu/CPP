@@ -9,7 +9,7 @@ class ICharacter;
 class AMateria{
 public:
 	AMateria( const std::string& );
-	Amateria( const Amateria& );
+	AMateria( const AMateria& );
 	virtual ~AMateria( void );
 
 	const std::string&	getType( void ) const;

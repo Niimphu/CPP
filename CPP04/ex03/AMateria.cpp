@@ -6,7 +6,7 @@ AMateria::AMateria( const std::string& type ) : _type( type ) {
 	std::cout << _type << " Materia spawned" << std::endl;
 }
 
-Amateria::Amateria( const Amateria& original ) : _type( original._type ) {
+AMateria::AMateria( const AMateria& original ) : _type( original._type ) {
 	std::cout << _type << " Materia copied" << std::endl;
 }
 
