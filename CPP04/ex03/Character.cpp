@@ -15,6 +15,11 @@ Character::Character( const std::string& name ) : _name( name ) {
 }
 
 Character::~Character( void ) {
+	for ( int i = 0; i < 4; ++i ) {
+		if ( _inventory[i] ) {
+			delete _inventory[i];
+		}
+	}
 	std::cout << "Character killed: " << _name << std::endl;
 }
 
