@@ -2,7 +2,7 @@
 # define ICE_H
 
 # include <iostream>
-# include "Materia.hpp"
+# include "AMateria.hpp"
 
 class Ice: public AMateria{
 public:
