@@ -11,7 +11,10 @@ class Character: public ICharacter{
 public:
 	Character( void );
 	Character( const std::string& );
+	Character( const Character& );
 	~Character( void );
+
+	Character&	operator=( const Character& );
 
 	const std::string&	getName( void ) const;
 	void				equip( AMateria* );

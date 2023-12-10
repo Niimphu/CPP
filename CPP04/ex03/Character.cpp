@@ -14,6 +14,13 @@ Character::Character( const std::string& name ) : _name( name ) {
 	std::cout << "Character created: " << _name << std::endl;
 }
 
+Character::Character( const Character& original ) : _name( original._name ) {
+	for ( int i = 0; i < 4; ++i ) {
+		_inventory[i] = original._inventory[i]->clone();
+	}
+	std::cout << "Character clone: " << _name << std::endl;
+}
+
 Character::~Character( void ) {
 	for ( int i = 0; i < 4; ++i ) {
 		if ( _inventory[i] ) {
@@ -21,6 +28,15 @@ Character::~Character( void ) {
 		}
 	}
 	std::cout << "Character killed: " << _name << std::endl;
+}
+
+Character&	Character::operator=( const Character& other ) {
+	if ( this != &other ) {
+		this._name = other._name;
+		for ( int i = 0; i < 4; ++i ) {
+			_inventory[i] = original._inventory[i]->clone();
+		}
+	}
 }
 
 const std::string&	Character::getName( void ) const{
