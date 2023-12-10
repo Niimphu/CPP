@@ -17,3 +17,7 @@ void	AMateria::setType( const std::string& type ){
 const std::string&	AMateria::getType( void ) const {
 	return _type;
 }
+
+void	AMateria::use( ICharacter& target ) {
+	std::cout << "* " << _type << " was used against " << target.getName() << " *" << std::endl;
+}
