@@ -1,6 +1,8 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
+#include <cstdlib>
+
 Animal::Animal( void ) : _type( "Animal" ), _brain( new Brain() ) {
 	std::cout << "Animal default constructor called: " << _type << std::endl;
 }
@@ -63,7 +65,7 @@ void	Animal::newIdea( void ) const {
 			"wow",
 			"cool"
 	};
-	_brain->setIdea( ideas[ std::rand() % 20 ] );
+	_brain->setIdea( ideas[ rand() % 20 ] );
 }
 
 void	Animal::thinkIdea( const int i ) const {
