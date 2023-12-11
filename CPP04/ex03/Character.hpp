@@ -22,9 +22,10 @@ public:
 	void				use( int, ICharacter& );
 
 private:
-	const std::string	_name;
-	AMateria*			_inventory[4];
+	std::string	_name;
+	AMateria*	_inventory[4];
 
+	void	setName( const std::string& );
 
 };
 

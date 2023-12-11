@@ -32,11 +32,16 @@ Character::~Character( void ) {
 
 Character&	Character::operator=( const Character& other ) {
 	if ( this != &other ) {
-		this._name = other._name;
+		this->_name = other._name;
 		for ( int i = 0; i < 4; ++i ) {
-			_inventory[i] = original._inventory[i]->clone();
+			_inventory[i] = other._inventory[i]->clone();
 		}
 	}
+	return *this;
+}
+
+void	Character::setName( const std::string& name ) {
+	_name = name;
 }
 
 const std::string&	Character::getName( void ) const{
