@@ -7,7 +7,7 @@
 
 class AMateria;
 
-class Character: public ICharacter{
+class Character: public ICharacter {
 public:
 	Character( void );
 	Character( const std::string& );
