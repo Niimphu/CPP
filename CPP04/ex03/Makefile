@@ -3,7 +3,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 NAME = interface
 
-SOURCE =  main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp
+SOURCE =  main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 
 all: $(NAME)
 
