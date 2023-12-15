@@ -1,18 +1,15 @@
 #include "Dog.hpp"
 
-Dog::Dog( void ) : Animal( "Dog" ) {
+Dog::Dog( void ) : Animal( "Dog" ), _brain( new Brain() ) {
 	std::cout << "Dog default constructor called: " << _type << std::endl;
 }
 
-Dog::Dog( const Dog& other ) : Animal( other ) {
-	std::cout << "Dog copy constructor called: " << _type << std::endl;
-}
-
-Dog::Dog( const Animal& other ) : Animal( other ) {
+Dog::Dog( const Dog& other ) : Animal( other ), _brain ( new Brain() ) {
 	std::cout << "Dog copy constructor called: " << _type << std::endl;
 }
 
 Dog::~Dog( void ) {
+	delete _brain;
 	std::cout << "Dog default destructor called: " << _type << std::endl;
 }
 

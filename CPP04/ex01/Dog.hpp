@@ -9,13 +9,15 @@ class Dog: public Animal {
 public:
 	Dog( void );
 	Dog( const Dog& );
-	Dog( const Animal& );
 	~Dog( void );
 
 	Dog	&operator=( const Dog& );
 
 	void	makeSound( void ) const;
 
+
+private:
+	Brain*	_brain;
 
 };
 

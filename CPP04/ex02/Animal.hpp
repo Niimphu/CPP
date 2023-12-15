@@ -12,9 +12,7 @@ public:
 
 	Animal	&operator=( const Animal& );
 
-	virtual void	makeSound( void ) const;
-	void			newIdea( void ) const;
-	void			thinkIdea( const int ) const;
+	virtual void	makeSound( void ) const = 0;
 
 	void	setType( const std::string& );
 
@@ -25,7 +23,6 @@ protected:
 	Animal( const std::string& );
 
 	std::string	_type;
-	Brain*		_brain;
 
 
 };

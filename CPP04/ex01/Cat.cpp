@@ -1,18 +1,15 @@
 #include "Cat.hpp"
 
-Cat::Cat( void ) : Animal( "Cat" ) {
+Cat::Cat( void ) : Animal( "Cat" ), _brain( new Brain() ) {
 	std::cout << "Cat default constructor called: " << _type << std::endl;
 }
 
-Cat::Cat( const Cat& other ) : Animal( other ) {
-	std::cout << "Cat copy constructor called: " << _type << std::endl;
-}
-
-Cat::Cat( const Animal& other ) : Animal( other ) {
+Cat::Cat( const Cat& other ) : Animal( other ), _brain( new Brain( *other._brain ) ) {
 	std::cout << "Cat copy constructor called: " << _type << std::endl;
 }
 
 Cat::~Cat( void ) {
+	delete _brain;
 	std::cout << "Cat default destructor called: " << _type << std::endl;
 }
 
