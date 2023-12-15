@@ -14,6 +14,7 @@ public:
 	Cat	&operator=( const Cat& );
 
 	void	makeSound( void ) const;
+	Brain*	getBrain( void );
 
 
 private:
