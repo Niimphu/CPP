@@ -4,15 +4,19 @@
 # include <string>
 # include <iostream>
 # include <exception>
-# include "Bureaucrat.hpp"
 
-class Form {
+class	Bureaucrat;
+
+class	Form {
 public:
-	Form( void );
-	Form ( Form& );
+	Form( Form& );
+	Form( const std::string&, const int, const int );
 	~Form( void );
 
-	Form	&operator=( Form& );
+	std::string	getName( void ) const;
+	bool		getIsSigned( void ) const;
+	int			getGradeToSign( void ) const;
+	int			getGradeToExecute( void ) const;
 
 	void	beSigned( const Bureaucrat& );
 
@@ -36,6 +40,9 @@ private:
 	bool				_isSigned;
 	const int			_gradeToSign;
 	const int			_gradeToExecute;
+
+	Form( void );
+	Form	&operator=( Form& );
 
 
 };

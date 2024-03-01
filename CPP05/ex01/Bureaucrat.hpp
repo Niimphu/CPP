@@ -5,7 +5,9 @@
 # include <exception>
 # include <string>
 
-class Bureaucrat {
+class	Form;
+
+class	Bureaucrat {
 public:
 	Bureaucrat( const std::string&, int );
 	Bureaucrat( const Bureaucrat& );
@@ -18,6 +20,8 @@ public:
 
 	void	incrementGrade( void );
 	void	decrementGrade( void );
+
+	void	signForm( Form& ) const;
 
 	class GradeTooHighException : public std::exception {
 		public:
