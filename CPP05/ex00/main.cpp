@@ -10,7 +10,7 @@ int	main( void ) {
 		cout << Fred << endl;
 	}
 	catch ( std::exception& e ) {
-		cerr << "Error: Fred" << endl;
+		cerr << e.what() << endl;
 	}
 
 	try {
@@ -18,7 +18,7 @@ int	main( void ) {
 		cout << Dave << endl;
 	}
 	catch ( std::exception& e ) {
-		cerr << "Error: Dave" << endl;
+		cerr << e.what() << endl;
 	}
 
 	try {
@@ -26,7 +26,7 @@ int	main( void ) {
 		cout << Ben << endl;
 	}
 	catch ( std::exception& e ) {
-		cerr << "Error: Ben" << endl;
+		cerr << e.what() << endl;
 	}
 
 	try {
@@ -37,7 +37,7 @@ int	main( void ) {
 		cout << George << endl;
 	}
 	catch ( std::exception& e ) {
-		cerr << "Error: George" << endl;
+		cerr << e.what() << endl;
 	}
 
 	try {
@@ -48,6 +48,6 @@ int	main( void ) {
 		cout << Dan << endl;
 	}
 	catch ( std::exception& e ) {
-		cerr << "Error: Dan" << endl;
+		cerr << e.what() << endl;
 	}
 }
