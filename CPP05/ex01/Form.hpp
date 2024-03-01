@@ -4,6 +4,7 @@
 # include <string>
 # include <iostream>
 # include <exception>
+# include "Bureaucrat.hpp"
 
 class Form {
 public:
@@ -12,6 +13,8 @@ public:
 	~Form( void );
 
 	Form	&operator=( Form& );
+
+	void	beSigned( const Bureaucrat& );
 
 	class GradeTooHighException : public std::exception {
 	public:
