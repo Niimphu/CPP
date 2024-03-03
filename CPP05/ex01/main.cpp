@@ -8,8 +8,6 @@ using std::cerr;
 int	main( void ) {
 	Bureaucrat	Daisy("Daisy", 130);
 	cout << Daisy << endl;
-	Bureaucrat	Berty("Berty", 130);
-	cout << Berty << endl;
 	try {
 		Form	test("Test", 0, 20);
 	}
