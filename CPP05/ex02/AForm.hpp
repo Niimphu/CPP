@@ -11,14 +11,15 @@ class	AForm {
 public:
 	AForm( AForm& );
 	AForm( const std::string&, const int, const int );
-	~AForm( void );
+	virtual ~AForm( void );
 
 	std::string	getName( void ) const;
 	bool		getIsSigned( void ) const;
 	int			getGradeToSign( void ) const;
 	int			getGradeToExecute( void ) const;
 
-	void	beSigned( const Bureaucrat& );
+	void			beSigned( const Bureaucrat& );
+	virtual void	execute( Bureaucrat const& ) const = 0;
 
 	class GradeTooHighException : public std::exception {
 	public:
