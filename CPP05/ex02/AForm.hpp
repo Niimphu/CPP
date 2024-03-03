@@ -19,20 +19,20 @@ public:
 	int			getGradeToExecute( void ) const;
 
 	void			beSigned( const Bureaucrat& );
-	void			checkBureaucratGradeForExecution( const Bureaucrat& );
+	void			checkBureaucratGradeForExecution( const Bureaucrat& ) const;
 	virtual void	execute( Bureaucrat const& ) const = 0;
 
 	class GradeTooHighException : public std::exception {
 	public:
 		const char* what() const throw() {
-			return "Grade too high.";
+			return "Grade too high";
 		}
 	};
 
 	class GradeTooLowException : public std::exception {
 	public:
 		const char* what() const throw() {
-			return "Grade too low.";
+			return "Grade too low";
 		}
 	};
 
