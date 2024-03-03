@@ -3,7 +3,7 @@
 
 AForm::AForm( void ): _name( "Default" ), _gradeToSign( 150 ), _gradeToExecute( 150 ) {}
 
-AForm::AForm( const std::string& name , const int gradeToSign, const int gradeToExecute): _name( name ), _isSigned( false ), _gradeToSign( gradeToSign ), _gradeToExecute( gradeToExecute ) {
+AForm::AForm( const std::string& name, const std::string& target, const int gradeToSign, const int gradeToExecute): _name( name ), _target( target ), _isSigned( false ), _gradeToSign( gradeToSign ), _gradeToExecute( gradeToExecute ) {
 	if ( _gradeToSign < 1 || _gradeToExecute < 1 )
 		throw AForm::GradeTooHighException();
 	if ( _gradeToSign > 150 || _gradeToExecute > 150 )
@@ -26,6 +26,10 @@ AForm&	AForm::operator=( AForm& other ) {
 
 std::string	AForm::getName( void ) const {
 	return _name;
+}
+
+std::string	AForm::getTarget( void ) const {
+	return _target;
 }
 
 bool		AForm::getIsSigned( void ) const {
