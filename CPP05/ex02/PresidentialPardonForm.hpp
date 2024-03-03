@@ -5,7 +5,7 @@
 
 class	PresidentialPardonForm: public AForm {
 public:
-	PresidentialPardonForm( void );
+	PresidentialPardonForm( const std::string& = std::string( "Dummy" ) );
 	PresidentialPardonForm( const PresidentialPardonForm& );
 	~PresidentialPardonForm( void );
 
