@@ -13,6 +13,7 @@ $(NAME): $(SOURCE)
 
 clean:
 	rm -rf $(NAME)
+	rm *_shrubbery
 
 fclean: clean
 
