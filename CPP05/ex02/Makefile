@@ -12,8 +12,8 @@ $(NAME): $(SOURCE)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(SOURCE)
 
 clean:
-	rm -rf $(NAME)
-	rm *_shrubbery
+	-rm -rf $(NAME)
+	-rm *_shrubbery
 
 fclean: clean
 
