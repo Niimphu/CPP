@@ -2,6 +2,7 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
+# define DRILL_NOISES "*LOUD AND DUBIOUS DRILLING NOISES*"
 
 class	RobotomyRequestForm: public AForm {
 public:
@@ -12,6 +13,7 @@ public:
 	RobotomyRequestForm&	operator=( const RobotomyRequestForm& );
 
 	void	execute( Bureaucrat const& ) const;
+	bool	coinFlip( void ) const;
 
 };
 
