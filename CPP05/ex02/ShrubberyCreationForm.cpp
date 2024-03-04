@@ -14,4 +14,13 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=( const ShrubberyCreation
 
 void	ShrubberyCreationForm::execute( Bureaucrat const& bureaucrat ) const {
 	checkBureaucratGradeForExecution( bureaucrat );
+
+	std::string	fileName = getTarget() + "_shrubbery";
+	std::ofstream	outputFile( fileName.c_str() );
+	if ( !outputFile ) {
+		throw std::runtime_error( "Could not open file: " + fileName );
+	}
+
+	outputFile << std::string( TREES ) << std::endl;
+	outputFile.close();
 }
