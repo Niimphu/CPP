@@ -1,15 +1,14 @@
 #include "Intern.hpp"
-#include <cctype>
 
 Intern::Intern() {}
 
 Intern::~Intern() {}
 
 AForm*	Intern::makeForm( const std::string& name, const std::string& target ) const {
-	std::string	formNames[] = { "shrubbery creation", "robotomy request", "presidential pardon" };
+	std::string	formNames[] = { "Shrubbery Creation", "Robotomy Request", "Presidential Pardon" };
 	int			i;
 	for ( i = 0; i < 3; i++ ) {
-		if ( !formNames[i].compare( toLower( name ) ) )
+		if ( !formNames[i].compare( name ) )
 			break;
 	}
 	AForm*	result;

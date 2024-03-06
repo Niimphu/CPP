@@ -30,7 +30,7 @@ int	main( void ) {
 	cout << endl;
 
 	try {
-		AForm* form = tim.makeForm( "PRESIDENTIAL PARDON", "Reginald Harrington" );
+		AForm* form = tim.makeForm( "Presidential Pardon", "Reginald Harrington" );
 		cout << *form << endl;
 		try {
 			reg.signForm( *form );
