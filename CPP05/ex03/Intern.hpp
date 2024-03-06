@@ -5,12 +5,6 @@
 # include "RobotomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
 
-enum FormName {
-	"shrubbery creation",
-	"robotomy request",
-	"presidential pardon"
-};
-
 class	AForm;
 
 class	Intern {

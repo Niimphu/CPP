@@ -14,29 +14,26 @@ AForm*	Intern::makeForm( const std::string& name, const std::string& target ) co
 	}
 	switch ( i ) {
 		case	0:
-			this->newShrubberyCreationForm( target );
-			break;
-		case 1:
-			this->newRobotomyRequestForm( target );
-			break;
-		case 2:
-			this->newPresidentialPardonForm( target );
-			break:
-		case 3: {
+			return this->newShrubberyCreationForm( target );
+		case	1:
+			return this->newRobotomyRequestForm( target );
+		case	2:
+			return this->newPresidentialPardonForm( target );
+		default: {
 			throw Intern::FormNotFound();
 		}
 	}
 }
 
-AForm*	newShrubberyCreationForm( const std::string& target ) const {
+AForm*	Intern::newShrubberyCreationForm( const std::string& target ) const {
 	return new ShrubberyCreationForm( target );
 }
 
-AForm*	newRobotomyRequestForm( const std::string& target ) const {
+AForm*	Intern::newRobotomyRequestForm( const std::string& target ) const {
 	return new RobotomyRequestForm( target );
 }
 
-AForm*	newPresidentialPardonForm( const std::string& target ) const {
+AForm*	Intern::newPresidentialPardonForm( const std::string& target ) const {
 	return new PresidentialPardonForm( target );
 }
 
@@ -44,8 +41,8 @@ std::string	toLower( const std::string& string ) {
 	std::string	result;
 	result.reserve( string.length() );
 
-	for ( char c : string ) {
-		result += std::tolower(c);
+	for (std::string::const_iterator it = string.begin(); it != string.end(); ++it) {
+		result += std::tolower(*it);
 	}
 
 	return result;
