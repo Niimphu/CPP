@@ -12,17 +12,23 @@ AForm*	Intern::makeForm( const std::string& name, const std::string& target ) co
 		if ( !formNames[i].compare( toLower( name ) ) )
 			break;
 	}
+	AForm*	result;
 	switch ( i ) {
 		case	0:
-			return this->newShrubberyCreationForm( target );
+			result = this->newShrubberyCreationForm( target );
+			break;
 		case	1:
-			return this->newRobotomyRequestForm( target );
+			result = this->newRobotomyRequestForm( target );
+			break;
 		case	2:
-			return this->newPresidentialPardonForm( target );
+			result = this->newPresidentialPardonForm( target );
+			break;
 		default: {
 			throw Intern::FormNotFound();
 		}
 	}
+	std::cout << "Intern creates " << result->getName() << std::endl;
+	return result;
 }
 
 AForm*	Intern::newShrubberyCreationForm( const std::string& target ) const {
