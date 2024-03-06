@@ -12,8 +12,8 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=( const ShrubberyCreation
 	return *this;
 }
 
-void	ShrubberyCreationForm::execute( Bureaucrat const& bureaucrat ) const {
-	checkBureaucratGradeForExecution( bureaucrat );
+void	ShrubberyCreationForm::execute( Bureaucrat const& executor ) const {
+	checkBureaucratGradeForExecution( executor );
 
 	std::string	fileName = getTarget() + "_shrubbery";
 	std::ofstream	outputFile( fileName.c_str() );

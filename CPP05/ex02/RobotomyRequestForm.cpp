@@ -13,8 +13,8 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=( const RobotomyRequestForm& 
 	return *this;
 }
 
-void	RobotomyRequestForm::execute( Bureaucrat const& bureaucrat ) const {
-	checkBureaucratGradeForExecution( bureaucrat );
+void	RobotomyRequestForm::execute( Bureaucrat const& executor ) const {
+	checkBureaucratGradeForExecution( executor );
 
 	std::cout << std::string( DRILL_NOISES ) << std::endl;
 
