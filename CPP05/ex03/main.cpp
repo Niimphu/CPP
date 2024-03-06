@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -8,21 +9,22 @@ using std::endl;
 using std::cerr;
 
 int	main( void ) {
-	Bureaucrat daisy("Daisy", 130);
-	cout << daisy << endl;
-
-	Bureaucrat tony("Tony", 28);
-	cout << tony << endl;
-
-	Bureaucrat mary("Mary", 2);
-	cout << mary << endl;
+	Bureaucrat reg("Reginald Harrington", 3);
+	cout << reg << endl;
+	Intern tim = Intern();
 	cout << endl;
 
 	try {
-		ShrubberyCreationForm form = ShrubberyCreationForm( "Park" );
-		cout << form << endl;
-		daisy.signForm( form );
-		daisy.executeForm( form );
+		AForm* form = tim.makeForm( "SHRUBBERY CREATION", "Harrington_Manor" );
+		cout << *form << endl;
+		try {
+			reg.signForm( *form );
+			reg.executeForm( *form );
+		}
+		catch ( std::exception& e ) {
+			cerr << e.what() << endl;
+		}
+		delete form;
 	}
 	catch ( std::exception& e ) {
 		cerr << e.what() << endl;
@@ -30,10 +32,16 @@ int	main( void ) {
 	cout << endl;
 
 	try {
-		RobotomyRequestForm	form = RobotomyRequestForm( daisy.getName() );
-		cout << form << endl;
-		tony.signForm( form );
-		tony.executeForm( form );
+		AForm* form = tim.makeForm( "Robotomy Request", "The new intern" );
+		cout << *form << endl;
+		try {
+			reg.signForm( *form );
+			reg.executeForm( *form );
+		}
+		catch ( std::exception& e ) {
+			cerr << e.what() << endl;
+		}
+		delete form;
 	}
 	catch ( std::exception& e ) {
 		cerr << e.what() << endl;
@@ -41,31 +49,13 @@ int	main( void ) {
 	cout << endl;
 
 	try {
-		PresidentialPardonForm	form = PresidentialPardonForm( tony.getName() );
-		cout << form << endl;
-		tony.executeForm( form );
+		AForm* form = tim.makeForm( "Cheese Transmutation", "Pebble" );
+		cout << *form << endl;
+		delete form;
 	}
 	catch ( std::exception& e ) {
-		cerr << e.what() << endl;
-	}
-	try {
-		PresidentialPardonForm	form = PresidentialPardonForm( tony.getName() );
-		cout << form << endl;
-		tony.signForm( form );
-	}
-	catch ( std::exception& e ) {
-		cerr << e.what() << endl;
+		cerr << "Intern could not create form: " << e.what() << endl;
 	}
 	cout << endl;
 
-	try {
-		PresidentialPardonForm	form = PresidentialPardonForm( tony.getName() );
-		cout << form << endl;
-		mary.signForm( form );
-		mary.executeForm( form );
-	}
-	catch ( std::exception& e ) {
-		cerr << e.what() << endl;
-	}
-	cout << endl;
 }
