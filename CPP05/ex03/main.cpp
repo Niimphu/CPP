@@ -1,8 +1,5 @@
 #include "Bureaucrat.hpp"
 #include "Intern.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 
 using std::cout;
 using std::endl;
@@ -14,8 +11,9 @@ int	main( void ) {
 	Intern tim = Intern();
 	cout << endl;
 
+
 	try {
-		AForm* form = tim.makeForm( "SHRUBBERY CREATION", "Harrington_Manor" );
+		AForm* form = tim.makeForm( "Robotomy Request", "The new intern" );
 		cout << *form << endl;
 		try {
 			reg.signForm( *form );
@@ -32,7 +30,7 @@ int	main( void ) {
 	cout << endl;
 
 	try {
-		AForm* form = tim.makeForm( "Robotomy Request", "The new intern" );
+		AForm* form = tim.makeForm( "PRESIDENTIAL PARDON", "Reginald Harrington" );
 		cout << *form << endl;
 		try {
 			reg.signForm( *form );
