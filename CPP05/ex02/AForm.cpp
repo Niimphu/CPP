@@ -61,6 +61,6 @@ void	AForm::checkExecutionEligibility( const Bureaucrat& bureaucrat ) const {
 }
 
 std::ostream&	operator<<( std::ostream& os, const AForm& form ) {
-	os << form.getName() << ", grade to sign: " << form.getGradeToSign() << ", grade to execute: " << form.getGradeToExecute();
+	os << form.getName() << ( form.getIsSigned() ? ", signed" : ", not yet signed" ) << ", grade to sign: " << form.getGradeToSign() << ", grade to execute: " << form.getGradeToExecute() << ", target: " << form.getTarget();
 	return os;
 }
