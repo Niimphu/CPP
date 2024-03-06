@@ -20,6 +20,7 @@ int	main( void ) {
 
 	try {
 		ShrubberyCreationForm form = ShrubberyCreationForm( "Park" );
+		cout << form << endl;
 		daisy.signForm( form );
 		daisy.executeForm( form );
 	}
@@ -30,6 +31,7 @@ int	main( void ) {
 
 	try {
 		RobotomyRequestForm	form = RobotomyRequestForm( daisy.getName() );
+		cout << form << endl;
 		tony.signForm( form );
 		tony.executeForm( form );
 	}
@@ -40,6 +42,7 @@ int	main( void ) {
 
 	try {
 		PresidentialPardonForm	form = PresidentialPardonForm( tony.getName() );
+		cout << form << endl;
 		tony.executeForm( form );
 	}
 	catch ( std::exception& e ) {
@@ -47,6 +50,7 @@ int	main( void ) {
 	}
 	try {
 		PresidentialPardonForm	form = PresidentialPardonForm( tony.getName() );
+		cout << form << endl;
 		tony.signForm( form );
 	}
 	catch ( std::exception& e ) {
@@ -56,6 +60,7 @@ int	main( void ) {
 
 	try {
 		PresidentialPardonForm	form = PresidentialPardonForm( tony.getName() );
+		cout << form << endl;
 		mary.signForm( form );
 		mary.executeForm( form );
 	}
