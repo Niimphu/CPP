@@ -13,7 +13,7 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=( const ShrubberyCreation
 }
 
 void	ShrubberyCreationForm::execute( Bureaucrat const& executor ) const {
-	checkBureaucratGradeForExecution( executor );
+	checkExecutionEligibility( executor );
 
 	std::string	fileName = getTarget() + "_shrubbery";
 	std::ofstream	outputFile( fileName.c_str() );

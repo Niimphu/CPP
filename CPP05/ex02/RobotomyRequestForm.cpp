@@ -14,7 +14,7 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=( const RobotomyRequestForm& 
 }
 
 void	RobotomyRequestForm::execute( Bureaucrat const& executor ) const {
-	checkBureaucratGradeForExecution( executor );
+	checkExecutionEligibility( executor );
 
 	std::cout << std::string( DRILL_NOISES ) << std::endl;
 
