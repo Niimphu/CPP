@@ -4,6 +4,8 @@
 # include <iostream>
 # include <string>
 
+# include "Type.hpp"
+
 class	ScalarConverter {
 public:
 	static void	convert( const std::string& );

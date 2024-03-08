@@ -1,3 +1,4 @@
+#include "Type.hpp"
 #include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter( void ) {}
@@ -13,6 +14,6 @@ ScalarConverter&	ScalarConverter::operator=( const ScalarConverter other ) {
 	return *this;
 }
 
-static void	convert( const std::string& input) {
+static void	convert( const std::string& input ) {
 
 }
