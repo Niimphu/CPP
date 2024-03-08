@@ -12,3 +12,7 @@ ScalarConverter&	ScalarConverter::operator=( const ScalarConverter other ) {
 	if ( this != other ) {}
 	return *this;
 }
+
+static void	convert( const std::string& input) {
+
+}
