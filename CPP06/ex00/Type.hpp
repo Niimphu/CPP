@@ -1,6 +1,8 @@
 #ifndef TYPE_HPP
 # define TYPE_HPP
 
+# include <string>
+
 enum Type {
 	CHAR,
 	INT,
@@ -8,10 +10,10 @@ enum Type {
 	DOUBLE,
 	PSEUDO_FLOAT,
 	PSEUDO_DOUBLE,
-
+	UNKNOWN
 };
 
-std::string	P_FLOATS[] = { "-inff", "+inff", "nanf" };
-std::string	P_DOUBLES[] = { "-inf", "+inf", "nan" };
+const std::string	P_FLOATS[] = { "-inff", "+inff", "nanf" };
+const std::string	P_DOUBLES[] = { "-inf", "+inf", "nan" };
 
 #endif

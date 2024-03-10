@@ -12,10 +12,10 @@ public:
 
 private:
 	ScalarConverter( void );
-	ScalarConverter( const ScalarConverter );
+	ScalarConverter( const ScalarConverter& );
 	~ScalarConverter( void );
 
-	ScalarConverter&	operator=( const ScalarConverter );
+	ScalarConverter&	operator=( const ScalarConverter& );
 
 
 };
