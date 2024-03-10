@@ -2,6 +2,6 @@
 #include "ScalarConverter.hpp"
 #include "Identifier.hpp"
 
-int	main( void ) {
-	ScalarConverter::convert( "+inf" );
+int	main(void) {
+	ScalarConverter::convert("i");
 }

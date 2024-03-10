@@ -1,21 +1,21 @@
 #include "ScalarConverter.hpp"
 #include "Identifier.hpp"
 
-ScalarConverter::ScalarConverter( void ) {}
+ScalarConverter::ScalarConverter(void) {}
 
-ScalarConverter::ScalarConverter( const ScalarConverter& ) {}
+ScalarConverter::ScalarConverter(const ScalarConverter&) {}
 
-ScalarConverter::~ScalarConverter( void ) {}
+ScalarConverter::~ScalarConverter(void) {}
 
-ScalarConverter&	ScalarConverter::operator=( const ScalarConverter& ) {
+ScalarConverter&	ScalarConverter::operator=(const ScalarConverter&) {
 	return *this;
 }
 
-void	ScalarConverter::convert( const std::string& input ) {
+void	ScalarConverter::convert(const std::string& input) {
 	Type	inputType;
 
-	inputType = Identifier::identify( input );
-	switch ( inputType ) {
+	inputType = Identifier::identify(input);
+	switch (inputType) {
 		case CHAR:
 		{
 			std::cout << "Char" << std::endl;
