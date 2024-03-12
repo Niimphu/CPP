@@ -67,7 +67,7 @@ bool	isInIntRange(double input) {
 std::string	decimalEnding(t_set set, Type type) {
 	std::string	ending;
 	ending = type == FLOAT ? "f" : "";
-	if (set.d == static_cast<int>(set.d))
+	if (set.d == static_cast<int>(set.d) && set.d < 1000000)
 		return ".0" + ending;
 	return ending;
 }
