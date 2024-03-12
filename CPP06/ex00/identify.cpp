@@ -1,4 +1,5 @@
 #include "identify.hpp"
+#include "utils.hpp"
 
 #include <cctype>
 
@@ -78,14 +79,4 @@ size_t	skipSigns(const std::string& input) {
 	if (pos == std::string::npos)
 		return 0;
 	return pos;
-}
-
-size_t	charCount(const std::string& input, char c) {
-	size_t	count = 0;
-
-	for (size_t it = 0; it < input.length(); it++) {
-		if (input[it] == c)
-			count++;
-	}
-	return count;
 }

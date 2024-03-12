@@ -18,6 +18,5 @@ bool	isFloat(const std::string&);
 bool	isDouble(const std::string&);
 
 size_t	skipSigns(const std::string&);
-size_t	charCount(const std::string&, char);
 
 #endif
