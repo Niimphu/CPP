@@ -3,7 +3,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 NAME = conversion
 
-SOURCE =  main.cpp ScalarConverter.cpp Identifier.cpp
+SOURCE =  main.cpp ScalarConverter.cpp identify.cpp utils.cpp
 
 all: $(NAME)
 
