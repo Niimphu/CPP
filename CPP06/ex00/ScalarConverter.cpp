@@ -1,5 +1,6 @@
 #include "ScalarConverter.hpp"
 #include "identify.hpp"
+#include "utils.hpp"
 
 ScalarConverter::ScalarConverter(void) {}
 
@@ -13,40 +14,46 @@ ScalarConverter&	ScalarConverter::operator=(const ScalarConverter&) {
 
 void	ScalarConverter::convert(const std::string& input) {
 	Type	inputType;
+	t_set	set;
 
 	inputType = identify(input);
 	switch (inputType) {
 		case CHAR:
 		{
-			std::cout << "Char" << std::endl;
+			set = convertChar(input);
 			break;
 		}
 		case INT:
-		{
-			std::cout << "Int" << std::endl;
-			break;
-		}
 		case FLOAT:
-		{
-			std::cout << "Float" << std::endl;
-			break;
-		}
 		case DOUBLE:
 		{
-			std::cout << "Double" << std::endl;
+			set = convertNumber(input);
 			break;
 		}
 		case PSEUDO_DOUBLE:
-		{
-			std::cout << "Pseudo double" << std::endl;
-			break;
-		}
 		case PSEUDO_FLOAT:
 		{
-			std::cout << "Pseudo float" << std::endl;
-			break;
+			set = convertPseudoLiteral(input);
+			std::cout << "char: impossible" << std::endl;
+			std::cout << "int: impossible" << std::endl;
+			std::cout << "float: " << set.f << "f" << std::endl;
+			std::cout << "double: " << set.d << std::endl;
+			return;
 		}
 		default:
-			std::cout << "??" << std::endl;
+		{
+			std::cout << "Invalid input: " << input << std::endl;
+			return;
+		}
 	}
+	if (floor(set.f) != set.f || !isInIntRange(set.d) || set.i < 32 || set.i > 126)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: " << set.c << std::endl;
+	if (isInIntRange(set.d))
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << set.i << std::endl;
+	std::cout << "float: " << set.f << "f" << std::endl;
+	std::cout << "double: " << set.d << std::endl;
 }
