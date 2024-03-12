@@ -1,5 +1,5 @@
 #include "ScalarConverter.hpp"
-#include "Identifier.hpp"
+#include "identify.hpp"
 
 ScalarConverter::ScalarConverter(void) {}
 
@@ -14,7 +14,7 @@ ScalarConverter&	ScalarConverter::operator=(const ScalarConverter&) {
 void	ScalarConverter::convert(const std::string& input) {
 	Type	inputType;
 
-	inputType = Identifier::identify(input);
+	inputType = identify(input);
 	switch (inputType) {
 		case CHAR:
 		{

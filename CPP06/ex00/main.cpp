@@ -1,7 +1,11 @@
 #include "Type.hpp"
 #include "ScalarConverter.hpp"
-#include "Identifier.hpp"
+#include "identify.hpp"
 
 int	main(void) {
-	ScalarConverter::convert("i");
+	ScalarConverter::convert("a");
+	ScalarConverter::convert("5");
+	ScalarConverter::convert("42.0");
+	ScalarConverter::convert("42.f");
+	ScalarConverter::convert("+inf");
 }
