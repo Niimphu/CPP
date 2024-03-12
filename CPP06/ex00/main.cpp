@@ -2,15 +2,10 @@
 #include "ScalarConverter.hpp"
 #include "identify.hpp"
 
-int	main(void) {
-	ScalarConverter::convert("a");
-	std::cout << std::endl;
-	ScalarConverter::convert("41");
-	std::cout << std::endl;
-	ScalarConverter::convert("42.0f");
-	std::cout << std::endl;
-	ScalarConverter::convert("-20.0");
-	std::cout << std::endl;
-	ScalarConverter::convert("-inff");
-	std::cout << std::endl;
+int	main(int ac, char** av) {
+	if (ac != 2) {
+		std::cerr << "Usage: " << av[0] << " <input>" << std::endl;
+		return 1;
+	}
+	ScalarConverter::convert(av[1]);
 }
