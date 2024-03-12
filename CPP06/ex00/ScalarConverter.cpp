@@ -50,10 +50,10 @@ void	ScalarConverter::convert(const std::string& input) {
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: " << set.c << std::endl;
-	if (isInIntRange(set.d))
+	if (!isInIntRange(set.d))
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << set.i << std::endl;
-	std::cout << "float: " << set.f << "f" << std::endl;
-	std::cout << "double: " << set.d << std::endl;
+	std::cout << "float: " << set.f << decimalEnding(set, FLOAT) << std::endl;
+	std::cout << "double: " << set.d << decimalEnding(set, DOUBLE) << std::endl;
 }

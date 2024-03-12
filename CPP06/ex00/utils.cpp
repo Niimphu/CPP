@@ -63,3 +63,11 @@ bool	isInIntRange(double input) {
 	int	intInput = static_cast<int>(input);
 	return intInput <= std::numeric_limits<int>::max() && intInput >= std::numeric_limits<int>::min();
 }
+
+std::string	decimalEnding(t_set set, Type type) {
+	std::string	ending;
+	ending = type == FLOAT ? "f" : "";
+	if (set.d == static_cast<int>(set.d))
+		return ".0" + ending;
+	return ending;
+}

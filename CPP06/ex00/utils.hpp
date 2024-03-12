@@ -6,11 +6,12 @@
 # include <cmath>
 # include "Type.hpp"
 
-t_set	convertChar(const std::string&);
-t_set	convertNumber(const std::string&);
-t_set	convertPseudoLiteral(const std::string&);
+t_set		convertChar(const std::string&);
+t_set		convertNumber(const std::string&);
+t_set		convertPseudoLiteral(const std::string&);
 
-size_t	charCount(const std::string&, char);
-bool	isInIntRange(double);
+size_t		charCount(const std::string&, char);
+bool		isInIntRange(double);
+std::string	decimalEnding(t_set, Type);
 
 #endif
