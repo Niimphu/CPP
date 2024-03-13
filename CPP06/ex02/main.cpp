@@ -19,6 +19,10 @@ int	main(void) {
 	catch (const std::string e) {
 		std::cerr << e << std::endl;
 	}
+
+	identify(randomInstance);
+	identify(*randomInstance);
+
 	delete randomInstance;
 }
 
@@ -48,9 +52,22 @@ Base*	generate(void) {
 	return instance;
 }
 
-void	identify(Base*) {
+void	identify(Base* p) {
+	if (A* a = dynamic_cast<A*>(p)) {
+		std::cout << "Class identified as Class A" << std::endl;
+	} else if (B* b = dynamic_cast<B*>(p)) {
+		std::cout << "Class identified as Class B" << std::endl;
+	} else if (C* c = dynamic_cast<C*>(p)) {
+		std::cout << "Class identified as Class C" << std::endl;
+	} else {
+		std::cout << "Unidentified class" << std::endl;
+	}
 }
 
-void	identify(Base&) {
-
+void	identify(Base& p) {
+	try {
+		identify(&p);
+	} catch (const std::bad_cast&) {
+		std::cout << "Unidentified class" << std::endl;
+	}
 }
