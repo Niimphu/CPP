@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <ctime>
+#include <cstdlib>
 
 Base*	generate(void);
 void	identify(Base*);
