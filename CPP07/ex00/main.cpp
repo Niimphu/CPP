@@ -1,6 +1,5 @@
 #include "whatever.hpp"
 #include <iostream>
-#include <string>
 
 int	main(void) {
 	int a = 2;
@@ -18,8 +17,23 @@ int	main(void) {
 	return 0;
 }
 
-void	swap(int &a, int &b) {
-	int tmp = a;
+template<typename T>
+void	swap(T& a, T& b) {
+	T tmp = a;
 	a = b;
 	b = tmp;
+}
+
+template<typename T>
+T&	min(T& a, T& b) {
+	if (a < b)
+		return a;
+	return b;
+}
+
+template<typename T>
+T&	max(T& a, T& b) {
+	if (a > b)
+		return a;
+	return b;
 }
