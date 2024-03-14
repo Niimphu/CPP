@@ -70,15 +70,28 @@ void	identify(Base* p) {
 }
 
 void identify(Base& p) {
-	if (dynamic_cast<A*>(&p)) {
-		std::cout << "Class identified as class A" << std::endl;
-	} else if (dynamic_cast<B*>(&p)) {
-		std::cout << "Class identified as class B" << std::endl;
-	} else if (dynamic_cast<C*>(&p)) {
-		std::cout << "Class identified as class C" << std::endl;
-	} else {
-		std::cerr << "Unidentified class" << std::endl;
+	try {
+		A& a = dynamic_cast<A&>(p);
+		std::cout << "Class identified as Class A" << std::endl;
+		(void)a;
+		return ;
 	}
+	catch (const std::exception&) {}
+	try {
+		B& b = dynamic_cast<B&>(p);
+		std::cout << "Class identified as Class B" << std::endl;
+		(void)b;
+		return ;
+	}
+	catch (const std::exception&) {}
+	try {
+		C& c = dynamic_cast<C&>(p);
+		std::cout << "Class identified as Class C" << std::endl;
+		(void)c;
+		return ;
+	}
+	catch (const std::exception&) {}
+	std::cerr << "Unidentified class" << std::endl;
 }
 
 //void	identify(Base& p) {
