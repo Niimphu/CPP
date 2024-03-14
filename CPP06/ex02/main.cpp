@@ -66,11 +66,11 @@ void	identify(Base* p) {
 
 void identify(Base& p) {
 	if (dynamic_cast<A*>(&p)) {
-		std::cout << "Identified as class A" << std::endl;
+		std::cout << "Class identified as class A" << std::endl;
 	} else if (dynamic_cast<B*>(&p)) {
-		std::cout << "Identified as class B" << std::endl;
+		std::cout << "Class identified as class B" << std::endl;
 	} else if (dynamic_cast<C*>(&p)) {
-		std::cout << "Identified as class C" << std::endl;
+		std::cout << "Class identified as class C" << std::endl;
 	} else {
 		std::cerr << "Unidentified class" << std::endl;
 	}
