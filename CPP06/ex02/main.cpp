@@ -56,10 +56,13 @@ Base*	generate(void) {
 
 void	identify(Base* p) {
 	if (A* a = dynamic_cast<A*>(p)) {
+		(void)a;
 		std::cout << "Class identified as Class A" << std::endl;
 	} else if (B* b = dynamic_cast<B*>(p)) {
+		(void)b;
 		std::cout << "Class identified as Class B" << std::endl;
 	} else if (C* c = dynamic_cast<C*>(p)) {
+		(void)c;
 		std::cout << "Class identified as Class C" << std::endl;
 	} else {
 		std::cerr << "Unidentified class" << std::endl;
