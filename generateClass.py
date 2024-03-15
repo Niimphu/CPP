@@ -17,14 +17,14 @@ def create_hpp(class_name, directory, attributes):
         f.write("# include <string>\n\n")
         f.write("class\t{} {{\n".format(class_name))
         f.write("public:\n")
-        f.write("\t{}( void );\n".format(class_name))
-        f.write("\t{}( const {}& );\n".format(class_name, class_name))
-        f.write("\t~{}( void );\n\n".format(class_name))
-        f.write("\t{}&\toperator=( const {}& );\n\n".format(class_name, class_name))
+        f.write("\t{}(void);\n".format(class_name))
+        f.write("\t{}(const {}&);\n".format(class_name, class_name))
+        f.write("\t~{}(void);\n\n".format(class_name))
+        f.write("\t{}&\toperator=(const {}&);\n\n".format(class_name, class_name))
 
         for attr_type, attr_name in attributes:
-            f.write("\tvoid\tset{}( const {}& );\n".format(capitalize_first_letter(attr_name), attr_type))
-            f.write("\t{}\tget{}( void );\n\n".format(attr_type, capitalize_first_letter(attr_name)))
+            f.write("\tvoid\tset{}(const {}&);\n".format(capitalize_first_letter(attr_name), attr_type))
+            f.write("\t{}\tget{}(void);\n\n".format(attr_type, capitalize_first_letter(attr_name)))
 
         f.write("\nprivate:\n")
         for attr_type, attr_name in attributes:
@@ -37,21 +37,21 @@ def create_cpp(class_name, directory, attributes):
     cpp_path = os.path.join(directory, class_name + ".cpp")
     with open(cpp_path, 'w') as f:
         f.write("#include \"{}.hpp\"\n\n".format(class_name))
-        f.write("{}::{}( void ) {{}}\n\n".format(class_name, class_name))
-        f.write("{}::{}( const {}& original ) {{}}\n\n".format(class_name, class_name, class_name))
-        f.write("{}::~{}( void ) {{}}\n\n".format(class_name, class_name))
-        f.write("{}&\t{}::operator=( const {}& other ) {{\n".format(class_name, class_name, class_name))
-        f.write("\tif ( this != &other ) {}\n")
+        f.write("{}::{}(void) {{}}\n\n".format(class_name, class_name))
+        f.write("{}::{}(const {}& original) {{}}\n\n".format(class_name, class_name, class_name))
+        f.write("{}::~{}(void) {{}}\n\n".format(class_name, class_name))
+        f.write("{}&\t{}::operator=(const {}& other) {{\n".format(class_name, class_name, class_name))
+        f.write("\tif (this != &other) {}\n")
         f.write("\treturn *this;\n")
         f.write("}\n")
 
         for attr_type, attr_name in attributes:
-            f.write("\nvoid\t\t{}::set{}( const {}& {} ) {{\n".format(class_name, capitalize_first_letter(attr_name),
+            f.write("\nvoid\t\t{}::set{}(const {}& {}) {{\n".format(class_name, capitalize_first_letter(attr_name),
                     attr_type, attr_name))
             f.write("\t_{} = {};\n".format(attr_name, attr_name))
             f.write("}\n\n")
 
-            f.write("{}\t{}::get{}( void ) {{\n".format(attr_type,
+            f.write("{}\t{}::get{}(void) {{\n".format(attr_type,
                     class_name, capitalize_first_letter(attr_name)))
             f.write("\treturn _{};\n".format(attr_name))
             f.write("}\n")
