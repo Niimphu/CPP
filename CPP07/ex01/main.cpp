@@ -2,8 +2,6 @@
 #include <iostream>
 #include <cctype>
 
-template<typename T>
-void	printArray(T*, size_t);
 void	capitaliseFirstLetter(std::string&);
 void	halve(double&);
 
@@ -19,14 +17,6 @@ int	main(void) {
 	iter(numbers, 4, halve);
 	printArray(numbers, 4);
 	return 0;
-}
-
-template<typename T>
-void	printArray(T* array, size_t length) {
-	for (size_t i = 0; i < length; i++) {
-		std::cout << (i == 0 ? "" : ", ") << array[i];
-	}
-	std::cout << std::endl;
 }
 
 void	capitaliseFirstLetter(std::string& string) {
