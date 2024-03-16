@@ -46,6 +46,12 @@ public:
 	unsigned int	size() const {
 		return (_size);
 	}
+	void	print() const {
+		for (size_t i = 0; i < _size; i++) {
+			std::cout << (i ? ", " : "") << _elements[i];
+		}
+		std::cout << std::endl;
+	}
 
 private:
 	T*				_elements;
