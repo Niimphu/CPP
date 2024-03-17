@@ -16,7 +16,6 @@ Span&	Span::operator=(const Span& other) {
 	return *this;
 }
 
-#include <iostream>
 void	Span::addNumber(int newNumber) {
 	if (_numbers.size() >= _N)
 		throw Span::spanFull();
@@ -36,7 +35,6 @@ int Span::shortestSpan() {
 
 	return *shortestSpan;
 }
-
 
 int	Span::longestSpan(void) {
 	if (_sortedNumbers.size() < 2)
