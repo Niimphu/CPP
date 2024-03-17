@@ -15,6 +15,12 @@ public:
 	int		shortestSpan(void);
 	int		longestSpan(void);
 
+	template<typename T>
+	void	addNumbers(T& container) {
+		_numbers.insert(_numbers.end(), container.begin(), container.end());
+		_sortedNumbers.insert(_numbers.end(), container.begin(), container.end());
+	}
+
 	class	spanFull: public std::exception {
 	public:
 		const char* what() const throw() {
