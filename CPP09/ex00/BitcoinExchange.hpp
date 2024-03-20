@@ -12,12 +12,14 @@ public:
 
 	BitcoinExchange&	operator=(const BitcoinExchange&);
 
-	void	setDatabase(const std::map<std::string,float>&);
-	std::map<std::string,float>	getDatabase(void);
+    std::map<std::string, float>	parseDatabase(const std::string&);
+	void	setDatabase(const std::string&);
 
 
 private:
 	std::map<std::string,float>	_database;
+
+	int	BitcoinExchange::parseLine(const std::string&);
 
 };
 

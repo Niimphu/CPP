@@ -11,10 +11,28 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& other) {
 	return *this;
 }
 
-void		BitcoinExchange::setDatabase(const std::map<std::string,float>& database) {
-	_database = database;
+int	BitcoinExchange::parseLine(const std::string& line) {
+	size_t	pipePos = line.find('|');
+	if (pipePos == std::string::npos || line[pipePos - 1] != ' ' || line[pipePos + 1] != ' ')
+		return -1;
+	}
+
+	std::string	date = line.substr(0, pipePos - 1);
+	std::string	priceString = line.substr(pipePos + 1);
+
+	if (date.empty() || priceString.empty())
+		return -1;
+
+	_database.insert(std::make_pair(date, std::stof(priceString)));
+	return 0;
 }
 
-std::map<std::string,float>	BitcoinExchange::getDatabase(void) {
-	return _database;
+std::map<std::string, float>	parseDatabase(const std::string& fileName) {
+	
 }
+
+void	BitcoinExchange::setDatabase(const std::string& fileName) {
+
+}
+
+void
