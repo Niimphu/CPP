@@ -24,7 +24,12 @@ int main() {
         ++it;
     }
     std::stack<int> s(mstack);
+	std::cout << std::endl;
 
+	std::cout << "Stack is " << (mstack.empty() ? "" : "not") << " empty" << std::endl;
+	mstack.push(42);
+	std::cout << "Top of stack: " << mstack.top() << std::endl;
+	std::cout << std::endl;
 
     std::cout << "List" << std::endl;
     std::list<int> list;
