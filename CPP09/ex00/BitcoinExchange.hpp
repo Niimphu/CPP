@@ -3,6 +3,11 @@
 
 # include <iostream>
 # include <string>
+# include <map>
+
+# define DIGITS "0123456789"
+
+size_t	charCount(const std::string&, char);
 
 class	BitcoinExchange {
 public:
@@ -17,9 +22,9 @@ public:
 
 
 private:
-	std::map<std::string,float>	_database;
+	std::map<std::string, float>	_database;
 
-	int	BitcoinExchange::parseLine(const std::string&);
+	int	parseLine(const std::string&);
 
 };
 
