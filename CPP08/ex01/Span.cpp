@@ -23,8 +23,10 @@ void	Span::addNumber(int newNumber) {
 	_sortedNumbers.push_back(newNumber);
 }
 
-void	Span::addNumbers(std::vector<int> newSet) {
-	_numbers.insert(_numbers.end(), newSet.begin(), newSet.end());
+void	Span::addRange(int first, int last) {
+	for (int i = first; i <= last; i++) {
+		addNumber(i);
+	}
 }
 
 int Span::shortestSpan() {
