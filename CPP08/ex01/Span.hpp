@@ -12,6 +12,7 @@ public:
 	Span&	operator=(const Span&);
 
 	void	addNumber(int);
+	void	addNumbers(std::vector<int>);
 	int		shortestSpan(void);
 	int		longestSpan(void);
 

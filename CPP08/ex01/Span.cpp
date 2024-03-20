@@ -23,6 +23,10 @@ void	Span::addNumber(int newNumber) {
 	_sortedNumbers.push_back(newNumber);
 }
 
+void	Span::addNumbers(std::vector<int> newSet) {
+	_numbers.insert(_numbers.end(), newSet.begin(), newSet.end());
+}
+
 int Span::shortestSpan() {
 	if (_sortedNumbers.size() < 2)
 		throw Span::tooFewValues();
