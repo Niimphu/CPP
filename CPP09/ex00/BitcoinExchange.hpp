@@ -25,7 +25,7 @@ public:
 
 	BitcoinExchange&	operator=(const BitcoinExchange&);
 
-    std::map<std::string, float>	parseDatabase(const std::string&);
+    std::map<std::string, float>	parseDatabase(const std::string&, std::map<std::string, float>);
 
 	void	setDatabase(const std::string&);
 

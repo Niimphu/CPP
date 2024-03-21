@@ -19,7 +19,7 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& other) {
 	return *this;
 }
 
-int	BitcoinExchange::parseLine(const std::string& line) {
+int	BitcoinExchange::parseLine(const std::string& line, std::map<std::string, float> database) {
 	size_t	pipePos = line.find('|');
 	if (pipePos == std::string::npos || line[pipePos - 1] != ' ' || line[pipePos + 1] != ' ')
 		return BAD_INPUT;
