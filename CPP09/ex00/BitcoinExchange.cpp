@@ -22,16 +22,22 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& other) {
 int	BitcoinExchange::parseLine(const std::string& line) {
 	size_t	pipePos = line.find('|');
 	if (pipePos == std::string::npos || line[pipePos - 1] != ' ' || line[pipePos + 1] != ' ')
-		return -1;
+		return BAD_INPUT;
 
 	std::string	date = line.substr(0, pipePos - 1);
 	std::string	priceString = line.substr(pipePos + 1);
 
 	if (!isValidDate(date) || !isValidFloat(priceString))
-		return -1;
+		return BAD_INPUT;
 
-	_database.insert(std::make_pair(date, atof(priceString.c_str())));
-	return 0;
+	float	price = atof(priceString.c_str());
+	if (price < 0)
+		return TOO_SMALL;
+	if (price > 1000)
+		return TOO_LARGE;
+
+	_database.insert(std::make_pair(date, price));
+	return OK;
 }
 
 std::map<std::string, float>	parseDatabase(const std::string& fileName) {

@@ -6,6 +6,10 @@
 # include <map>
 
 # define DIGITS "0123456789"
+# define OK 0
+# define BAD_INPUT 1
+# define TOO_SMALL 2
+# define TOO_LARGE 3
 
 size_t	charCount(const std::string&, char);
 bool	isValidFloat(const std::string&);
