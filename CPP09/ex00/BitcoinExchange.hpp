@@ -7,13 +7,15 @@
 
 # define DIGITS "0123456789"
 # define OK 0
-# define BAD_INPUT 1
-# define TOO_SMALL 2
-# define TOO_LARGE 3
+# define OPEN 1
+# define BAD_INPUT 2
+# define TOO_SMALL 3
+# define TOO_LARGE 4
 
 size_t	charCount(const std::string&, char);
 bool	isValidFloat(const std::string&);
 bool	isValidDate(const std::string&);
+void	error(int, const std::string& = "");
 
 class	BitcoinExchange {
 public:

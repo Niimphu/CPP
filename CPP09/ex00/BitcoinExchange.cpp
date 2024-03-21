@@ -50,6 +50,26 @@ void	BitcoinExchange::setDatabase(const std::string& fileName) {
 	(void)fileName;
 }
 
+void	error(int errorCode, const std::string& errorLocation) {
+	std::string	errorMessage;
+	switch (errorCode) {
+		case OPEN:
+			errorMessage = "could not open file: "
+		case BAD_INPUT:
+			errorMessage = "bad input =>";
+			break;
+		case TOO_SMALL:
+			errorMessage = "not a positive number";
+			break;
+		case TOO_LARGE:
+			errorMessage = "too large a number";
+			break;
+		default:
+			errorMessage = "idk";
+	}
+	std::cerr << "Error: " << errorMessage << errorLocation << std::endl;
+}
+
 bool	isValidDate(const std::string& dateString) {
 	if (dateString.length() != 10 || charCount(dateString, '-') != 2)
 		return false;
