@@ -8,6 +8,8 @@
 # define DIGITS "0123456789"
 
 size_t	charCount(const std::string&, char);
+bool	isValidFloat(const std::string&);
+bool	isValidDate(const std::string&);
 
 class	BitcoinExchange {
 public:
@@ -18,6 +20,7 @@ public:
 	BitcoinExchange&	operator=(const BitcoinExchange&);
 
     std::map<std::string, float>	parseDatabase(const std::string&);
+
 	void	setDatabase(const std::string&);
 
 

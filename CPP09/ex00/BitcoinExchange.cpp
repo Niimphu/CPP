@@ -1,5 +1,6 @@
 #include "BitcoinExchange.hpp"
 #include <cstdlib>
+#include <sstream>
 
 BitcoinExchange::BitcoinExchange(void) {}
 
@@ -26,7 +27,7 @@ int	BitcoinExchange::parseLine(const std::string& line) {
 	std::string	date = line.substr(0, pipePos - 1);
 	std::string	priceString = line.substr(pipePos + 1);
 
-	if (date.empty() || priceString.empty())
+	if (!isValidDate(date) || !isValidFloat(priceString))
 		return -1;
 
 	_database.insert(std::make_pair(date, atof(priceString.c_str())));
@@ -44,14 +45,38 @@ void	BitcoinExchange::setDatabase(const std::string& fileName) {
 }
 
 bool	isValidDate(const std::string& dateString) {
-	size_t	dashPos = dateString.find('-');
-	if (dashPos == std::string::npos)
+	if (dateString.length() != 10 || charCount(dateString, '-') != 2)
 		return false;
 
+	std::istringstream iss(dateString);
+	int year, month, day;
+	char dash1, dash2;
+	iss >> year >> dash1 >> month >> dash2 >> day;
+
+	if (iss.fail() || dash1 != '-' || dash2 != '-')
+		return false;
+
+	if (year < 0 || month < 1 || month > 12 || day < 1)
+		return false;
+
+	int daysInMonth = 31;
+	if (month == 4 || month == 6 || month == 9 || month == 11)
+		daysInMonth = 30;
+	else if (month == 2) {
+		if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+			daysInMonth = 29;
+		else
+			daysInMonth = 28;
+	}
+
+	if (day > daysInMonth)
+		return false;
 	return true;
 }
 
 bool	isValidFloat(const std::string& floatString) {
+	if (floatString.empty())
+		return false;
 	size_t	pos = floatString.find_first_not_of(DIGITS + std::string("."));
 	if (pos != std::string::npos)
 		return false;
