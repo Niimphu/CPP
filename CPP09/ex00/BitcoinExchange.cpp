@@ -1,8 +1,11 @@
 #include "BitcoinExchange.hpp"
 #include <cstdlib>
 #include <sstream>
+#include <fstream>
 
-BitcoinExchange::BitcoinExchange(void) {}
+BitcoinExchange::BitcoinExchange(void) {
+	setDatabase();
+}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& original) {
 	for (std::map<std::string, float>::const_iterator it = original._database.begin(); it != original._database.end(); ++it) {
@@ -21,11 +24,11 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& other) {
 
 int	BitcoinExchange::parseLine(const std::string& line, std::map<std::string, float> database) {
 	size_t	pipePos = line.find('|');
-	if (pipePos == std::string::npos || line[pipePos - 1] != ' ' || line[pipePos + 1] != ' ')
+	if (pipePos == std::string::npos || line[pipePos - 1] != ' ' || line[pipePos + 2] != ' ')
 		return BAD_INPUT;
 
 	std::string	date = line.substr(0, pipePos - 1);
-	std::string	priceString = line.substr(pipePos + 1);
+	std::string	priceString = line.substr(pipePos + 2);
 
 	if (!isValidDate(date) || !isValidFloat(priceString))
 		return BAD_INPUT;
@@ -36,27 +39,64 @@ int	BitcoinExchange::parseLine(const std::string& line, std::map<std::string, fl
 	if (price > 1000)
 		return TOO_LARGE;
 
-	_database.insert(std::make_pair(date, price));
+//		std::cout << date << " | " << price << std::endl;
+
+	database.insert(std::make_pair(date, price));
 	return OK;
 }
 
-std::map<std::string, float>	parseDatabase(const std::string& fileName) {
+std::map<std::string, float>	BitcoinExchange::parseDatabase(const std::string& fileName) {
 	std::map<std::string, float>	database;
-	(void)fileName;
+	std::ifstream	file(fileName.c_str());
+	if (!file.is_open()) {
+		error(OPEN, fileName);
+		return database;
+	}
+
+	std::string	line;
+	if (std::getline(file, line)) {
+		while (std::getline(file, line)) {
+			parseLine(line, _database);
+		}
+	}
+	else {
+		error(EMPTY);
+		return database;
+	}
+
 	return database;
 }
 
-void	BitcoinExchange::setDatabase(const std::string& fileName) {
-	(void)fileName;
+//throw exception if no database found
+void	BitcoinExchange::setDatabase(void) {
+	std::ifstream	file(DEFAULT_DB);
+	if (!file.is_open()) {
+		error(OPEN, DEFAULT_DB);
+		return ;
+	}
+
+	std::string	line;
+	std::getline(file, line);
+	while (std::getline(file, line)) {
+		size_t	commaPos = line.find(',');
+		std::string	date = line.substr(0, commaPos);
+		std::string	priceString = line.substr(commaPos + 1);
+		float	price = atof(priceString.c_str());
+		_database.insert(std::make_pair(date, price));
+	}
 }
 
 void	error(int errorCode, const std::string& errorLocation) {
 	std::string	errorMessage;
 	switch (errorCode) {
 		case OPEN:
-			errorMessage = "could not open file: "
+			errorMessage = "could not open file: ";
+			break;
+		case EMPTY:
+			errorMessage = "input file empty";
+			break;
 		case BAD_INPUT:
-			errorMessage = "bad input =>";
+			errorMessage = "bad input => ";
 			break;
 		case TOO_SMALL:
 			errorMessage = "not a positive number";

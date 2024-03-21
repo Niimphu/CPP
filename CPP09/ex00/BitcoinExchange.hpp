@@ -6,11 +6,13 @@
 # include <map>
 
 # define DIGITS "0123456789"
+# define DEFAULT_DB "data.csv"
 # define OK 0
 # define OPEN 1
-# define BAD_INPUT 2
-# define TOO_SMALL 3
-# define TOO_LARGE 4
+# define EMPTY 2
+# define BAD_INPUT 3
+# define TOO_SMALL 4
+# define TOO_LARGE 5
 
 size_t	charCount(const std::string&, char);
 bool	isValidFloat(const std::string&);
@@ -25,15 +27,18 @@ public:
 
 	BitcoinExchange&	operator=(const BitcoinExchange&);
 
-    std::map<std::string, float>	parseDatabase(const std::string&, std::map<std::string, float>);
+	std::map<std::string, float>	getDatabase(void) {
+		return _database;
+	}
 
-	void	setDatabase(const std::string&);
 
 
 private:
 	std::map<std::string, float>	_database;
 
-	int	parseLine(const std::string&);
+	void							setDatabase(void);
+	std::map<std::string, float>	parseDatabase(const std::string&);
+	int								parseLine(const std::string&, std::map<std::string, float>);
 
 };
 
