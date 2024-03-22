@@ -65,7 +65,7 @@ int	BitcoinExchange::parseLine(const std::string& line) {
 		return TOO_LARGE;
 
 	float	value = processInput(date, amount);
-	if (value == -1)
+	if (value == TOO_EARLY)
 		return TOO_EARLY;
 	std::cout << date << " => " << amount << " = " << value << std::endl;
 	return OK;
@@ -76,7 +76,7 @@ float	BitcoinExchange::processInput(const std::string& date, float amount) {
 	for (std::map<std::string, float>::iterator it = _database.begin(); it != _database.end(); ++it) {
 		if (inputDateExceeded(date, it->first)) {
 			if (it == _database.begin())
-				return -1;
+				return TOO_EARLY;
 			return result;
 		}
 		result = amount * it->second;

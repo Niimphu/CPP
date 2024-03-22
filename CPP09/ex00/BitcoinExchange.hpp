@@ -13,7 +13,7 @@
 # define BAD_INPUT 3
 # define TOO_SMALL 4
 # define TOO_LARGE 5
-# define TOO_EARLY 6
+# define TOO_EARLY -1
 
 size_t	charCount(const std::string&, char);
 bool	isValidFloat(const std::string&);
