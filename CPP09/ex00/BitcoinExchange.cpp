@@ -54,9 +54,12 @@ std::map<std::string, float>	BitcoinExchange::parseDatabase(const std::string& f
 	}
 
 	std::string	line;
+	int			errorCode;
 	if (std::getline(file, line)) {
 		while (std::getline(file, line)) {
-			parseLine(line, _database);
+			errorCode = parseLine(line, _database);
+			if (errorCode != OK)
+				error(errorCode, errorCode == BAD_INPUT ? line : "");
 		}
 	}
 	else {
