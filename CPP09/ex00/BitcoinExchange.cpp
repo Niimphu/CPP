@@ -45,7 +45,7 @@ int	BitcoinExchange::parseLine(const std::string& line, std::map<std::string, fl
 	return OK;
 }
 
-std::map<std::string, float>	BitcoinExchange::parseDatabase(const std::string& fileName) {
+std::map<std::string, float>	BitcoinExchange::parseInput(const std::string& fileName) {
 	std::map<std::string, float>	database;
 	std::ifstream	file(fileName.c_str());
 	if (!file.is_open()) {

@@ -30,6 +30,7 @@ public:
 	std::map<std::string, float>	getDatabase(void) {
 		return _database;
 	}
+	std::map<std::string, float>	parseInput(const std::string&);
 
 	class	invalidDatabase: public std::exception {
 	public:
@@ -44,7 +45,6 @@ private:
 	std::map<std::string, float>	_database;
 
 	void							setDatabase(void);
-	std::map<std::string, float>	parseDatabase(const std::string&);
 	int								parseLine(const std::string&, std::map<std::string, float>);
 
 };
