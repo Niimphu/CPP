@@ -34,9 +34,9 @@ std::map<std::string, float>	BitcoinExchange::parseInput(const std::string& file
 	int			errorCode;
 	if (std::getline(file, line)) {
 		while (std::getline(file, line)) {
-			errorCode = parseLine(line, _database);
+			errorCode = parseLine(line);
 			if (errorCode != OK)
-				error(errorCode, errorCode == BAD_INPUT ? line : "");
+				error(errorCode, errorCode == BAD_INPUT || errorCode == TOO_EARLY ? line : "");
 		}
 	}
 	else {
@@ -47,7 +47,7 @@ std::map<std::string, float>	BitcoinExchange::parseInput(const std::string& file
 	return database;
 }
 
-int	BitcoinExchange::parseLine(const std::string& line, std::map<std::string, float> database) {
+int	BitcoinExchange::parseLine(const std::string& line) {
 	size_t	pipePos = line.find('|');
 	if (pipePos == std::string::npos || line[pipePos - 1] != ' ' || line[pipePos + 1] != ' ')
 		return BAD_INPUT;
@@ -64,14 +64,24 @@ int	BitcoinExchange::parseLine(const std::string& line, std::map<std::string, fl
 	if (amount > 1000)
 		return TOO_LARGE;
 
-	std::cout << date << " | " << amount << std::endl;
-
-	database.insert(std::make_pair(date, amount));
+	float	value = processInput(date, amount);
+	if (value == -1)
+		return TOO_EARLY;
+	std::cout << date << " => " << amount << " = " << value << std::endl;
 	return OK;
 }
 
-int	processInput(const std::string& date, float amount) {
-
+float	BitcoinExchange::processInput(const std::string& date, float amount) {
+	float	result = -1;
+	for (std::map<std::string, float>::iterator it = _database.begin(); it != _database.end(); ++it) {
+		if (inputDateExceeded(date, it->first)) {
+			if (it == _database.begin())
+				return -1;
+			return result;
+		}
+		result = amount * it->second;
+	}
+	return result;
 }
 
 void	BitcoinExchange::setDatabase(void) {
@@ -93,6 +103,31 @@ void	BitcoinExchange::setDatabase(void) {
 	}
 }
 
+bool	BitcoinExchange::inputDateExceeded(const std::string& input, const std::string& data) {
+	int inputYear = atoi(input.substr(0, 4).c_str());
+	int inputMonth = atoi(input.substr(5, 2).c_str());
+	int inputDay = atoi(input.substr(8, 2).c_str());
+
+	int dataYear = atoi(data.substr(0, 4).c_str());
+	int dataMonth = atoi(data.substr(5, 2).c_str());
+	int dataDay = atoi(data.substr(8, 2).c_str());
+
+	if (inputYear < dataYear)
+		return true;
+	else if (inputYear > dataYear)
+		return false;
+
+	if (inputMonth < dataMonth)
+		return true;
+	else if (inputMonth > dataMonth)
+		return false;
+
+	if (inputDay < dataDay)
+		return true;
+
+	return false;
+}
+
 void	error(int errorCode, const std::string& errorLocation) {
 	std::string	errorMessage;
 	switch (errorCode) {
@@ -110,6 +145,9 @@ void	error(int errorCode, const std::string& errorLocation) {
 			break;
 		case TOO_LARGE:
 			errorMessage = "too large a number";
+			break;
+		case TOO_EARLY:
+			errorMessage = "date too early => ";
 			break;
 		default:
 			errorMessage = "idk";

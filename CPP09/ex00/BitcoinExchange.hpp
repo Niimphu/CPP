@@ -45,9 +45,10 @@ public:
 private:
 	std::map<std::string, float>	_database;
 
-	void							setDatabase(void);
-	int								parseLine(const std::string&, std::map<std::string, float>);
-
+	void	setDatabase(void);
+	int		parseLine(const std::string&);
+	float	processInput(const std::string&, float);
+	bool	inputDateExceeded(const std::string&, const std::string&);
 };
 
 #endif
