@@ -1,10 +1,16 @@
 #include "BitcoinExchange.hpp"
 
-int	main(void) {
-	BitcoinExchange	btc;
-	std::map<std::string, float>	database = btc.getDatabase();
-	std::map<std::string, float>::const_iterator it = database.begin();
-	std::advance(it, 200);
-	std::cout << it->second << std::endl;
-	return 0;
+int	main(int ac, char** av) {
+	if (ac != 2) {
+		std::cerr << "Error: could not open file" << std::endl;
+		return 1;
+	}
+	try {
+		BitcoinExchange btc;
+		btc.parseInput(av[1]);
+	}
+	catch (std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
+		return 0;
 }
