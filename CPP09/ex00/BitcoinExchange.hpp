@@ -31,6 +31,13 @@ public:
 		return _database;
 	}
 
+	class	invalidDatabase: public std::exception {
+	public:
+		const char* what() const throw() {
+			return "Error: missing or invalid data.csv file";
+		}
+	};
+
 
 
 private:

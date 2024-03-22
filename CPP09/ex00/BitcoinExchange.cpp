@@ -67,12 +67,10 @@ std::map<std::string, float>	BitcoinExchange::parseDatabase(const std::string& f
 	return database;
 }
 
-//throw exception if no database found
 void	BitcoinExchange::setDatabase(void) {
 	std::ifstream	file(DEFAULT_DB);
 	if (!file.is_open()) {
-		error(OPEN, DEFAULT_DB);
-		return ;
+		throw invalidDatabase();
 	}
 
 	std::string	line;
@@ -81,6 +79,8 @@ void	BitcoinExchange::setDatabase(void) {
 		size_t	commaPos = line.find(',');
 		std::string	date = line.substr(0, commaPos);
 		std::string	priceString = line.substr(commaPos + 1);
+		if (!isValidDate(date) || !isValidFloat(priceString))
+			throw invalidDatabase();
 		float	price = atof(priceString.c_str());
 		_database.insert(std::make_pair(date, price));
 	}
