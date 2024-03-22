@@ -49,7 +49,7 @@ std::map<std::string, float>	BitcoinExchange::parseInput(const std::string& file
 	std::map<std::string, float>	database;
 	std::ifstream	file(fileName.c_str());
 	if (!file.is_open()) {
-		error(OPEN, fileName);
+		error(OPEN);
 		return database;
 	}
 
@@ -93,7 +93,7 @@ void	error(int errorCode, const std::string& errorLocation) {
 	std::string	errorMessage;
 	switch (errorCode) {
 		case OPEN:
-			errorMessage = "could not open file: ";
+			errorMessage = "could not open file";
 			break;
 		case EMPTY:
 			errorMessage = "input file empty";
