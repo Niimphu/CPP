@@ -24,7 +24,7 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& other) {
 
 int	BitcoinExchange::parseLine(const std::string& line, std::map<std::string, float> database) {
 	size_t	pipePos = line.find('|');
-	if (pipePos == std::string::npos || line[pipePos - 1] != ' ' || line[pipePos + 2] != ' ')
+	if (pipePos == std::string::npos || line[pipePos - 1] != ' ' || line[pipePos + 1] != ' ')
 		return BAD_INPUT;
 
 	std::string	date = line.substr(0, pipePos - 1);
@@ -39,7 +39,7 @@ int	BitcoinExchange::parseLine(const std::string& line, std::map<std::string, fl
 	if (price > 1000)
 		return TOO_LARGE;
 
-//		std::cout << date << " | " << price << std::endl;
+	std::cout << date << " | " << price << std::endl;
 
 	database.insert(std::make_pair(date, price));
 	return OK;
@@ -146,11 +146,15 @@ bool	isValidDate(const std::string& dateString) {
 bool	isValidFloat(const std::string& floatString) {
 	if (floatString.empty())
 		return false;
-	size_t	pos = floatString.find_first_not_of(DIGITS + std::string("."));
+	size_t pos = floatString.find_first_not_of("+-");
+	if (pos == std::string::npos)
+		return false;
+	std::string	remainingString = floatString.substr(pos);
+	pos = remainingString.find_first_not_of(DIGITS + std::string("."));
 	if (pos != std::string::npos)
 		return false;
 
-	int	decimalPointCount = charCount(floatString, '.');
+	int	decimalPointCount = charCount(remainingString, '.');
 	if (decimalPointCount > 1)
 		return false;
 	return true;
