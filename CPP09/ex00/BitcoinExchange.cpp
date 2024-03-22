@@ -47,6 +47,33 @@ std::map<std::string, float>	BitcoinExchange::parseInput(const std::string& file
 	return database;
 }
 
+int	BitcoinExchange::parseLine(const std::string& line, std::map<std::string, float> database) {
+	size_t	pipePos = line.find('|');
+	if (pipePos == std::string::npos || line[pipePos - 1] != ' ' || line[pipePos + 1] != ' ')
+		return BAD_INPUT;
+
+	std::string	date = line.substr(0, pipePos - 1);
+	std::string	amountString = line.substr(pipePos + 2);
+
+	if (!isValidDate(date) || !isValidFloat(amountString))
+		return BAD_INPUT;
+
+	float	amount = atof(amountString.c_str());
+	if (amount < 0)
+		return TOO_SMALL;
+	if (amount > 1000)
+		return TOO_LARGE;
+
+	std::cout << date << " | " << amount << std::endl;
+
+	database.insert(std::make_pair(date, amount));
+	return OK;
+}
+
+int	processInput(const std::string& date, float amount) {
+
+}
+
 void	BitcoinExchange::setDatabase(void) {
 	std::ifstream	file(DEFAULT_DB);
 	if (!file.is_open()) {
