@@ -3,6 +3,13 @@
 
 # include <iostream>
 # include <string>
+# include <unordered_set>
+# include <vector>
+# include <deque>
+
+# define DIGITS "0123456789"
+
+bool	isValidUInt(const std::string&);
 
 class	PMergeMe {
 public:
@@ -11,6 +18,8 @@ public:
 	~PMergeMe(void);
 
 	PMergeMe&	operator=(const PMergeMe&);
+
+	void	parse(char**);
 
 
 private:
