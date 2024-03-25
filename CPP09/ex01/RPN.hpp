@@ -13,7 +13,10 @@ public:
 	RPN(void);
 	~RPN(void);
 
+	void	calculate(const std::string&);
+
 	bool	isValid(const std::string&);
+	int		doTheMaths(const std::string&);
 
 private:
 	std::stack<int>	_operands;
