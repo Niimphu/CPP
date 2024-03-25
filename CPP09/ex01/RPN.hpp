@@ -3,25 +3,24 @@
 
 # include <iostream>
 # include <string>
+# include <stack>
+
+const std::string	DIGITS = "0123456789";
+const std::string	OPERATORS = "+-*/";
 
 class	RPN {
 public:
 	RPN(void);
-	RPN(const RPN&);
 	~RPN(void);
 
-	RPN&	operator=(const RPN&);
-
-	void	setOperands(const std::map<int>&);
-	std::map<int>	getOperands(void);
-
-	void	setOperators(const std::map<int>&);
-	std::map<int>	getOperators(void);
-
+	bool	isValid(const std::string&);
 
 private:
-	std::map<int>	_operands;
-	std::map<int>	_operators;
+	std::stack<int>	_operands;
+	std::stack<int>	_operators;
+
+	RPN(const RPN&);
+	RPN&	operator=(const RPN&);
 
 };
 
