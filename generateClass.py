@@ -62,8 +62,8 @@ def main():
         print("Usage: python generateClass.py ClassName Directory [Type1 Name1 Type2 Name2 ...]")
         return
 
-    class_name = sys.argv[1]
-    directory = sys.argv[2]
+    directory = sys.argv[1]
+    class_name = sys.argv[2]
 
     if not os.path.exists(directory):
         os.makedirs(directory)
