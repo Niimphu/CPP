@@ -23,10 +23,11 @@ public:
 
 
 private:
+	int*				_input;
 	std::vector<int>	_vec;
 	std::deque<int>		_deq;
-	float	_vecTime;
-	float	_deqTime;
+	float				_vecTime;
+	float				_deqTime;
 
 };
 

@@ -6,6 +6,6 @@ int	main(int ac, char** av) {
 		return 1;
 	}
 	PMergeMe	sorter;
-	sorter.sort(ac, av);
+	sorter.sort(ac - 1, av);
 	return 0;
 }
