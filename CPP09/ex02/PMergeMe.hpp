@@ -3,7 +3,6 @@
 
 # include <iostream>
 # include <string>
-# include <unordered_set>
 # include <vector>
 # include <deque>
 
@@ -19,13 +18,13 @@ public:
 
 	PMergeMe&	operator=(const PMergeMe&);
 
-	void	parse(char**);
+	void	sort(int, char**);
+	int		parse(char**);
 
 
 private:
-	std::unordered_set<int>	_rawValues;
-	std::vector<int>	_sortedVector;
-	std::deque<int>	_sortedDeque;
+	std::vector<int>	_vec;
+	std::deque<int>		_deq;
 	float	_vecTime;
 	float	_deqTime;
 
