@@ -16,17 +16,44 @@ PMergeMe&	PMergeMe::operator=(const PMergeMe&) {
 }
 
 void	PMergeMe::sort(int elementCount, char** input) {
+	clock_t	start = clock();
+
 	_input = new int[elementCount];
 	if (parse(input) != 0) {
 		delete _input;
 		return ;
 	}
-	for (size_t i = 0; i < (size_t)elementCount; i++) {
+	clock_t	parseTime = clock() - start;
+
+	vecSort(elementCount);
+	clock_t	vecTimeToSort = clock() - start;
+
+
+	clock_t	deqTimeToSort = clock() - vecTimeToSort + parseTime;
+
+	_vecTime = (double)(vecTimeToSort) / CLOCKS_PER_SEC * 1000000;
+	_deqTime = (double)(deqTimeToSort) / CLOCKS_PER_SEC * 1000000;
+
+	std::cout << "Before:  ";
+	for (int i = 0; i < elementCount; ++i) {
 		std::cout << _input[i] << " ";
 	}
 	std::cout << std::endl;
+	std::cout << "After    ";
+	for (std::vector<int>::iterator it = _vec.begin(); it != _vec.end(); ++it) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+	std::cout << "Time to process a range of " << elementCount << " elements with std::vector<int> : " << _vecTime << " us" << std::endl;
+	std::cout << std::endl;
 
 	delete _input;
+}
+
+void	PMergeMe::vecSort(int elementCount) {
+	_vec.reserve(elementCount);
+	_vec = std::vector<int>(_input, _input + elementCount);
+
 }
 
 int	PMergeMe::parse(char** input) {

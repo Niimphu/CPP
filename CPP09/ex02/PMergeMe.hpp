@@ -20,14 +20,15 @@ public:
 
 	void	sort(int, char**);
 	int		parse(char**);
+	void	vecSort(int);
 
 
 private:
 	int*				_input;
 	std::vector<int>	_vec;
 	std::deque<int>		_deq;
-	float				_vecTime;
-	float				_deqTime;
+	double				_vecTime;
+	double				_deqTime;
 
 };
 
