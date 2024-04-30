@@ -16,20 +16,20 @@ PMergeMe&	PMergeMe::operator=(const PMergeMe&) {
 }
 
 void	PMergeMe::sort(int elementCount, char** input) {
-	clock_t	start = clock();
 
 	_input = new int[elementCount];
 	if (parse(input) != 0) {
 		delete _input;
 		return ;
 	}
-	clock_t	parseTime = clock() - start;
+	clock_t	startVec = clock();
 
 	vecSort(elementCount);
-	clock_t	vecTimeToSort = clock() - start;
+	clock_t	vecTimeToSort = clock() - startVec;
 
-
-	clock_t	deqTimeToSort = clock() - vecTimeToSort + parseTime;
+	clock_t	startDeq = clock();
+	//deqSort(elementCount);
+	clock_t	deqTimeToSort = clock() - startDeq;
 
 	_vecTime = (double)(vecTimeToSort) / CLOCKS_PER_SEC * 1000000;
 	_deqTime = (double)(deqTimeToSort) / CLOCKS_PER_SEC * 1000000;
@@ -39,21 +39,47 @@ void	PMergeMe::sort(int elementCount, char** input) {
 		std::cout << _input[i] << " ";
 	}
 	std::cout << std::endl;
-	std::cout << "After    ";
+	std::cout << "After:   ";
 	for (std::vector<int>::iterator it = _vec.begin(); it != _vec.end(); ++it) {
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
 	std::cout << "Time to process a range of " << elementCount << " elements with std::vector<int> : " << _vecTime << " us" << std::endl;
+	std::cout << "Time to process a range of " << elementCount << " elements with std::deque<int> : " << _deqTime << " us" << std::endl;
 	std::cout << std::endl;
 
 	delete _input;
 }
 
 void	PMergeMe::vecSort(int elementCount) {
+	bool	straggler = elementCount % 2;
 	_vec.reserve(elementCount);
 	_vec = std::vector<int>(_input, _input + elementCount);
 
+	std::vector< std::vector<int> >	pairs;
+	for (int i = 0; i < elementCount; i += 2) {
+		if (i + 1 < elementCount) {
+			std::vector<int>	pair;
+			pair.push_back(_input[i]);
+			pair.push_back(_input[i + 1]);
+			pairs.push_back(pair);
+		}
+		else if (_input[i]) {
+			std::vector<int>	single;
+			single.push_back(_input[i]);
+			pairs.push_back(single);
+		}
+	}
+	for (std::vector< std::vector<int> >::iterator it = pairs.begin(); it != pairs.end(); ++it) {
+		if ((*it)[0] > (*it)[1])
+			std::swap((*it)[0], (*it)[1]);
+	}
+	for (std::vector< std::vector<int> >::iterator it = pairs.begin(); it != pairs.end(); ++it) {
+		std::cout << (*it)[0] << " ";
+		if (it + 1 != pairs.end() || !straggler)
+			std::cout << (*it)[1];
+		std::cout << std::endl;
+	}
 }
 
 int	PMergeMe::parse(char** input) {
