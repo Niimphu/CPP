@@ -51,40 +51,6 @@ void	PMergeMe::sort(int elementCount, char** input) {
 	delete _input;
 }
 
-std::vector< std::vector<int> >	PMergeMe::getVecPairs(int elementCount) {
-	std::vector< std::vector<int> >	pairs;
-	for (int i = 0; i < elementCount; i += 2) {
-		if (i + 1 < elementCount) {
-			std::vector<int>	pair;
-			pair.push_back(_input[i]);
-			pair.push_back(_input[i + 1]);
-			pairs.push_back(pair);
-		}
-	}
-	for (std::vector< std::vector<int> >::iterator it = pairs.begin(); it != pairs.end(); ++it) {
-		if ((*it)[0] > (*it)[1])
-			std::swap((*it)[0], (*it)[1]);
-	}
-	return pairs;
-}
-
-std::deque< std::deque<int> >	PMergeMe::getDeqPairs(int elementCount) {
-	std::deque< std::deque<int> >	pairs;
-	for (int i = 0; i < elementCount; i += 2) {
-		if (i + 1 < elementCount) {
-			std::deque<int>	pair;
-			pair.push_back(_input[i]);
-			pair.push_back(_input[i + 1]);
-			pairs.push_back(pair);
-		}
-	}
-	for (std::deque< std::deque<int> >::iterator it = pairs.begin(); it != pairs.end(); ++it) {
-		if ((*it)[0] > (*it)[1])
-			std::swap((*it)[0], (*it)[1]);
-	}
-	return pairs;
-}
-
 void	PMergeMe::vecSort(int elementCount) {
 	int	straggler = 0;
 	if (elementCount % 2)

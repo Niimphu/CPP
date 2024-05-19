@@ -30,9 +30,6 @@ public:
 	template<typename Container, typename Pairs>
 	void	insert(const Pairs& pairs, Container& sortedVec);
 
-	std::vector< std::vector<int> >	getVecPairs(int elementCount);
-	std::deque< std::deque<int> >	getDeqPairs(int elementCount);
-
 private:
 	int*				_input;
 	std::vector<int>	_vec;
