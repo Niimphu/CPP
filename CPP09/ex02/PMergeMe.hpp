@@ -21,7 +21,17 @@ public:
 	void	sort(int, char**);
 	int		parse(char**);
 	void	vecSort(int);
+	void	deqSort(int);
 
+	template<typename Pairs>
+	void	mergePairs(Pairs&, int, int);
+	template<typename Pairs>
+	void	merge(Pairs&, int, int, int);
+	template<typename Container, typename Pairs>
+	void	insert(const Pairs& pairs, Container& sortedVec);
+
+	std::vector< std::vector<int> >	getVecPairs(int elementCount);
+	std::deque< std::deque<int> >	getDeqPairs(int elementCount);
 
 private:
 	int*				_input;
